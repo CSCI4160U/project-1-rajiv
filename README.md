@@ -4,8 +4,7 @@ You can work on this assignment alone or in a group of no more than 2 students.
 
 | Group Member Name          | GitHub Username    |
 | :------------------------- |:------------------:|
-| <Rajiv> <Williams> | <rajiv-williams> |
-| :------------------------- |:------------------:|
+| <Rajiv> <Williams>         | <rajiv-williams>   |
 
 Trailer video URL: _________________________
 
