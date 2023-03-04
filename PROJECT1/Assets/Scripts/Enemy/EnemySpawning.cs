@@ -3,6 +3,9 @@ using System.Collections;
 
 public class EnemySpawning : MonoBehaviour
 {
+
+    public int timeToRespawn = 10;
+
     private void Update()
     {
         if (this.GetComponent<Enemy>().isDead)
@@ -20,7 +23,7 @@ public class EnemySpawning : MonoBehaviour
     {
 
         // cool down for 30 seconds
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(timeToRespawn);
 
         this.GetComponent<Enemy>().Revive();
 
