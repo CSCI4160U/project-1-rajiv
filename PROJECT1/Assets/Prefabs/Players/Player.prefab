@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2711964921331828286}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2166765811424998875}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8574525273870810587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4786095826775751884}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DownAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 6298507339231301645}
   - component: {fileID: 2803225119237125927}
   - component: {fileID: 2077685240838580455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8883131849345417627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.72, y: -6.26, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -331,10 +331,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userName: Player
-  attack: 10
+  attack: 25
   defense: 10
   maxHealth: 100
-  health: 100
+  health: 0
   playerScore: 0
   isFacingUp: 0
   isFacingDown: 0
@@ -362,7 +362,6 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  animator: {fileID: 8883131849345417617}
 --- !u!70 &6298507339231301645
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -400,6 +399,10 @@ MonoBehaviour:
     playerScore: 0
     isDead: 0
     playerPosition: {x: 0, y: 0, z: 0}
+  sceneData:
+    sceneFullName: 
+    sceneType: 
+    levelName: 
   player: {fileID: 6551572282522626706}
 --- !u!114 &2077685240838580455
 MonoBehaviour:
