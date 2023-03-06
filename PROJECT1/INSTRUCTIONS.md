@@ -122,10 +122,9 @@ The following instructions apply to the `Player` game object only:
 ![Player Layer](./INSTRUCTION_images/SettingUpSprites/PlayerSprite/layer.PNG)
 
 2. In the `Player` script component, set the values however you would like. Recommended values are as follows:
-- "Attack" = 25
-- "Defense" = 10
+- "Default Attack" = 25
+- "Default Defense" = 10
 - "Max Health" = 100
-- "Health" = 0
 - "Player Score" = 0
 
 Also, to set the "Starting Position" of the Player, navigate to the `Scriptable Objects` folder in the `Assets` folder. You will find the `PlayerPosition` asset. 

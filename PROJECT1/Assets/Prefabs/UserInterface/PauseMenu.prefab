@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 6988029709728026293}
   - component: {fileID: 6988029709728026292}
   - component: {fileID: 6988029709728026291}
-  - component: {fileID: 6988029709728026297}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -317,18 +316,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6988029709728026297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6988029709728026290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b034f11b9a692144ba7944a555699aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1020809367244032056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,6 +326,14 @@ PrefabInstance:
     - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_text
       value: Continue Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
+      propertyPath: m_fontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_Pivot.x
@@ -370,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 380
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.y
@@ -472,11 +467,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_Pivot.x
@@ -508,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.y
@@ -602,11 +597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_Pivot.x
@@ -638,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.y

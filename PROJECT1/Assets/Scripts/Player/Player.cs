@@ -1,25 +1,39 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 
 public class Player : MonoBehaviour
 {
+    // Values are increased In-Game if weapons or defense boosts are equipped
+    private int currentAttack;
+    private int currentDefense;
+    private int health;
+
     public string userName;
-    public int attack;
-    public int defense;
+
+    public int defaultAttack = 25;
+    public int defaultDefense = 10;
     public int maxHealth = 100;
-    public int health;
     public int playerScore;
+
     public bool isFacingUp;
     public bool isFacingDown;
     public bool isFacingLeft;
     public bool isFacingRight;
+
     public bool isDead;
+
     public VectorValue startingPosition;
+
+    public List<Enemy> bossesDefeated = new List<Enemy>();
 
     private void Start()
     {
+        currentAttack = defaultAttack;
+        currentDefense = defaultDefense;
+        health = maxHealth;
         this.transform.position = startingPosition.initialValue;
     }
 
@@ -27,7 +41,7 @@ public class Player : MonoBehaviour
 
     public void TakeHit(Enemy enemy)
     {
-        int damage = (enemy.attack - this.defense);
+        int damage = (enemy.attack - this.currentDefense);
 
         if(damage > 0)
         {
@@ -53,5 +67,47 @@ public class Player : MonoBehaviour
     {
         UpdateHealthSlider();
         UpdatePlayerScore();
+    }
+
+    // Getters and Setters
+
+    public int GetAttackPower()
+    {
+        return currentAttack;
+    }
+
+    public void SetAttackPower(int newAttack)
+    {
+        currentAttack = newAttack;
+    }
+
+    public int GetDefense()
+    {
+        return currentDefense;
+    }
+
+    public void SetDefense(int newDefense)
+    {
+        currentDefense = newDefense;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return health;
+    }
+
+    public void Heal(int healthBoost)
+    {
+        health += healthBoost;
+
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+    public void SetHealth(int newHealth)
+    {
+        health = newHealth;
     }
 }

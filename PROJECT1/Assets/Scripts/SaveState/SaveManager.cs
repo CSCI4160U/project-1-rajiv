@@ -6,6 +6,7 @@ public class SaveManager : MonoBehaviour
     //public Armour armour = null;
     public PlayerData playerData = null;
     public SceneData sceneData = null;
+    public BossDefeatsData bossDefeatsData = null;
     public Player player = null;
     private string savePath;
 
@@ -31,9 +32,9 @@ public class SaveManager : MonoBehaviour
      */
     public void SaveGame()
     {
-        //SaveScene();
+        SaveScene();
         SavePlayer();
-        //SaveInventory();
+        SaveBossDefeats();
         //SaveEnemies();
         //SaveLoot();
         //SaveTreasureChests();
@@ -48,8 +49,7 @@ public class SaveManager : MonoBehaviour
     {
         LoadScene();
         LoadPlayer();
-        //LoadInventory();
-        //LoadEnemies();
+        LoadBossDefeats();
         //LoadLoot();
         //LoadTreasureChests();
     }
@@ -58,10 +58,10 @@ public class SaveManager : MonoBehaviour
     void SavePlayer()
     {
         this.playerData.userName = this.player.userName;
-        this.playerData.attack = this.player.attack;
-        this.playerData.defense = this.player.defense;
+        this.playerData.attack = this.player.GetAttackPower();
+        this.playerData.defense = this.player.GetDefense();
         this.playerData.maxHealth = this.player.maxHealth;
-        this.playerData.health = this.player.health;
+        this.playerData.health = this.player.GetCurrentHealth();
         this.playerData.playerScore = this.player.playerScore;
         this.playerData.isDead = this.player.isDead;
         this.playerData.playerPosition = this.player.transform.position;
@@ -79,10 +79,10 @@ public class SaveManager : MonoBehaviour
         if(playerData != null)
         {
             this.player.userName = playerData.userName;
-            this.player.attack = playerData.attack;
-            this.player.defense = playerData.defense;
+            this.player.SetAttackPower(playerData.attack);
+            this.player.SetDefense(playerData.defense);
             this.player.maxHealth = playerData.maxHealth;
-            this.player.health = playerData.health;
+            this.player.SetHealth(playerData.health);
             this.player.playerScore = playerData.playerScore;
             this.player.isDead = playerData.isDead;
             this.player.transform.position = playerData.playerPosition;
@@ -119,6 +119,27 @@ public class SaveManager : MonoBehaviour
         else
         {
             Debug.Log("ALERT: No save file exists. Create a New Game!");
+        }
+    }
+
+    [ContextMenu("Save BossDefeats")]
+    void SaveBossDefeats()
+    {
+        this.bossDefeatsData.bossesDefeated = player.bossesDefeated;
+
+        JSONLoaderSaver.SaveBossDefeatsDataAsJSON(savePath, "bossDefeatsData.json", this.bossDefeatsData);
+        //BinaryLoaderSaver.SavePlayerAsBinary(savePath, "player.bin",this.playerData);
+    }
+    [ContextMenu("Load BossDefeats")]
+    void LoadBossDefeats()
+    {
+        this.bossDefeatsData = JSONLoaderSaver.LoadBossDefeatsDataFromJSON(savePath, "bossDefeatsData.json");
+
+        //this.playerData = BinaryLoaderSaver.LoadPlayerFromBinary(savePath,"player.bin");
+
+        if (bossDefeatsData != null)
+        {
+            player.bossesDefeated = bossDefeatsData.bossesDefeated;
         }
     }
 

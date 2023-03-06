@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         if (!isDead)
         {
-            int damage = (player.attack - this.defense);
+            int damage = (player.GetAttackPower() - this.defense);
             if (damage > 0)
             {
                 health -= damage;

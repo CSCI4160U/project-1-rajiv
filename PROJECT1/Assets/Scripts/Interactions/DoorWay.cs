@@ -33,7 +33,7 @@ public class DoorWay : MonoBehaviour
             float distanceBetween = Vector2.Distance(this.transform.position, player.transform.position);
 
             // if player is within the required distance and has pressed attack button
-            if (distanceBetween <= requiredDistance && Input.GetButtonDown("Fire1"))
+            if (distanceBetween <= requiredDistance && (Input.GetButtonDown("Fire1")))
             {
                 // if player has reached score required
                 if (player.playerScore >= scoreRequired)

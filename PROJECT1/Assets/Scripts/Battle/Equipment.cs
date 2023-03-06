@@ -7,4 +7,5 @@ public class Equipment : MonoBehaviour
     public int defense;
     public int attack;
     public Sprite icon;
+
 }

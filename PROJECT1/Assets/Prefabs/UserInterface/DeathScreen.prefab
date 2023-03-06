@@ -228,8 +228,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 80}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: 0, y: 142}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8679985917953770603
 CanvasRenderer:
@@ -259,10 +259,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU DIED
+  m_text: YOU DIED!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 10276bfede590b740a2f9a509087eb52, type: 2}
+  m_sharedMaterial: {fileID: 8626403251529430530, guid: 10276bfede590b740a2f9a509087eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 140
+  m_fontSizeBase: 140
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -341,11 +341,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_Pivot.x
@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.y
@@ -493,6 +493,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Restart Level
       objectReference: {fileID: 0}
+    - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
+      propertyPath: m_fontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403936458373877260, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -523,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 380
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302642, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_SizeDelta.y

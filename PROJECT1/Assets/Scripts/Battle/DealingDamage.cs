@@ -47,13 +47,13 @@ public class DealingDamage : MonoBehaviour
             float distanceBetween = Vector2.Distance(this.transform.position, enemy.transform.position);
 
             // if attack can do damage, if enemy is within range, if player damage cool down done, and if enemy is alive
-            if (player.defense < enemy.attack && !justTookDamage && !enemy.isDead)
+            if (player.GetDefense() < enemy.attack && !justTookDamage && !enemy.isDead)
             {
                 //Debug.Log("Test");
-                damage = (enemy.attack - player.defense);
+                damage = (enemy.attack - player.GetDefense());
 
                 // deal an attack
-                player.health -= damage;
+                player.SetHealth(player.GetCurrentHealth() - damage);
 
                 // enemy attack animation
                 enemy.GetComponent<Animator>().SetTrigger("attacked");
@@ -75,7 +75,7 @@ public class DealingDamage : MonoBehaviour
                 Start();
             }
 
-            if (player.health <= 0)
+            if (player.GetCurrentHealth() <= 0)
             {
                 player.isDead = true;
                 Debug.Log("Game Over: Player is Dead");
@@ -119,7 +119,10 @@ public class DealingDamage : MonoBehaviour
             Debug.Log("Player hit " + enemy.name);
                 
             // take a hit from Player
-            enemy.GetComponent<Enemy>().TakeHit(player);
+            if(enemy.GetComponent<Enemy>() != null)
+            {
+                enemy.GetComponent<Enemy>().TakeHit(player);
+            }
 
             // reset cool down
             justTookDamage = false;

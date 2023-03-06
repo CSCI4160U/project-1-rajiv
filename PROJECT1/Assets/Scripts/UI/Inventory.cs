@@ -6,8 +6,14 @@ public class Inventory : MonoBehaviour
 {
     public Equipment armour;
     public Equipment weapon;
-    public static List<Equipment> unequipped = new List<Equipment>();
+    public List<Equipment> unequipped = new List<Equipment>();
     private const int maxUnequippedSize = 4;
+    private Player player;
+
+    private void Start()
+    {
+        player = this.GetComponent<Player>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,7 +27,7 @@ public class Inventory : MonoBehaviour
             {
                 Debug.Log("Inventory is Full");
             }
-            else if (newItem != null)
+            else if (newItem != null && !unequipped.Contains(newItem))
             {
                 // pick up the item
                 unequipped.Add(newItem);
@@ -36,11 +42,38 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        populatUnequippedInventory();
+        PopulatUnequippedInventory();
+        UpdatePlayerArmorAndDefense();
+    }
+
+    private void UpdatePlayerArmorAndDefense()
+    {
+        if (player != null)
+        {
+            if(weapon != null)
+            {
+                player.SetAttackPower(player.defaultAttack + weapon.attack);
+                Debug.Log("Player Attack Boosted");
+            }
+            else
+            {
+                player.SetAttackPower(player.defaultAttack);
+            }
+
+            if (armour != null)
+            {
+                player.SetDefense(player.defaultDefense + armour.defense);
+                Debug.Log("Player Defense Boosted");
+            }
+            else
+            {
+                player.SetDefense(player.defaultDefense);
+            }
+        }
     }
 
     // replaces the values of the Equipment component in a gameObject
-    private void initializeEquipmentForGameObject(GameObject obj, Equipment e)
+    private void InitializeEquipmentForGameObject(GameObject obj, Equipment e)
     {
         if(obj.GetComponent<Equipment>() == null)
         {
@@ -55,7 +88,7 @@ public class Inventory : MonoBehaviour
     }
 
     // fills in the unequipped inventory based on the list of unequipped items
-    private void populatUnequippedInventory()
+    private void PopulatUnequippedInventory()
     {
         GameObject unequippedItems = GameObject.Find("UnequippedItems");
         //Debug.Log("Length: "+numUnequippedItems);
@@ -68,7 +101,7 @@ public class Inventory : MonoBehaviour
                 GameObject objectCollected = unequippedItemButton.transform.GetChild(0).gameObject;
              
                 // Adding new values of equipment
-                initializeEquipmentForGameObject(objectCollected, unequipped[i]);
+                InitializeEquipmentForGameObject(objectCollected, unequipped[i]);
             }
             
 
@@ -98,7 +131,7 @@ public class Inventory : MonoBehaviour
         // if object being equipped exists
         if(objectToBeEquipped != null)
         {
-            initializeEquipmentForGameObject(objectToBeEquipped, equipment);
+            InitializeEquipmentForGameObject(objectToBeEquipped, equipment);
         }
         
         Debug.Log("Equipped a " + equipment.type + " described as "+ equipment.description + ".");
@@ -127,5 +160,6 @@ public class Inventory : MonoBehaviour
         }
 
         Debug.Log("Unequipped a " + equipment.type + " described as " + equipment.description + ".");
+
     }
 }
