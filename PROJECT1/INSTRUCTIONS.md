@@ -1,12 +1,12 @@
-# HOW TO MAKE A TOP-DOWN GAME QUEST GAME
+# HOW TO MAKE A SINGLE PLAYER TOP-DOWN 2D GAME
 
 ## Level Creation (2D Tilemaps)
 
 Open the Unity editor and follow these instructions:
 
-1. In the Project window, click on the `Assets` folder if it is not already opended.
-2. Within the `Assets` folder, click on the `Prefabs` folder.
-3. Within the `Prefabs` folder, click on the `Landscapes` folder.
+1. In the Project window, open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `Prefabs` folder.
+3. Within the `Prefabs` folder, open the `Landscapes` folder.
 
 ![finding landscapes](./INSTRUCTION_images/LevelCreation/locating_landscapes.PNG "A screenshot of file structure, finding the landscape prefabs")
 
@@ -59,9 +59,9 @@ If you think you are done with your landscape, Congratulations! You just created
 
 ## Adding Main Character
 
-1. Click on the `Assets` folder if it is not already opended.
-2. Within the `Assets` folder, click on the `Prefabs` folder.
-3. Within the `Prefabs` folder, click on the `Players` folder.
+1. Open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `Prefabs` folder.
+3. Within the `Prefabs` folder, open the `Players` folder.
 
 ![locating players](./INSTRUCTION_images/AddingMainCharacter/locating_players.PNG)
 
@@ -77,9 +77,9 @@ If you think you are done with your landscape, Congratulations! You just created
 
 ## Adding Enemies
 
-1. Click on the `Assets` folder if it is not already opended.
-2. Within the `Assets` folder, click on the `Prefabs` folder.
-3. Within the `Prefabs` folder, click on the `Enemies` folder.
+1. Open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `Prefabs` folder.
+3. Within the `Prefabs` folder, open the `Enemies` folder.
 
 ![locating enemies](./INSTRUCTION_images/AddingEnemies/locating_enemies.PNG)
 
@@ -95,7 +95,7 @@ TODO
 
 TODO
 
-## Setting Up Sprites
+## Sprites Set-Up
 
 Do the following while the `Player` or `Enemy` game object you want to set up is selected in the Scene Hierarchy:
 
@@ -127,6 +127,14 @@ The following instructions apply to the `Player` game object only:
 - "Max Health" = 100
 - "Health" = 0
 - "Player Score" = 0
+
+Also, to set the "Starting Position" of the Player, navigate to the `Scriptable Objects` folder in the `Assets` folder. You will find the `PlayerPosition` asset. 
+
+![Player Position](./INSTRUCTION_images/SettingUpSprites/PlayerSprite/playerposition.PNG)
+
+Drag this into the slot of the "Starting Position" for the `Player` script. This will allow the player to maintain the same position when entering and exiting `DoorWay` game objects. (Note: This should be done for every scene the `Player` is in)
+
+![Starting Position](./INSTRUCTION_images/SettingUpSprites/PlayerSprite/start.PNG)
 
 3. Locate the `Player Input` script component, set the "Run Speed" to 3. Feel free to adjust this if you would like.
 
@@ -161,9 +169,9 @@ The following instructions apply to the `Enemy` game object(s) only:
 
 ## In-Game Menus / Interfaces
 
-1. In the Project window, click on the `Assets` folder if it is not already opended.
-2. Within the `Assets` folder, click on the `Prefabs` folder.
-3. Within the `Prefabs` folder, click on the `UserInterface` folder.
+1. In the Project window, open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `Prefabs` folder.
+3. Within the `Prefabs` folder, open the `UserInterface` folder.
 
 ![locating menus](./INSTRUCTION_images/InGameMenusInterfaces/locating_menus.PNG)
 
@@ -194,19 +202,19 @@ TODO
 
 ## Main Menu
 
-1. In the Project window, click on the `Assets` folder if it is not already opended.
-2. Within the `Assets` folder, click on the `Scenes` folder.
+1. In the Project window, open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `Scenes` folder.
 
 ![locate scenes](./INSTRUCTION_images/MainMenu/locatescenes.PNG)
 
-3. Within the `Scenes` folder, right-click on an empty space in the folder and create a new Scene. Name it as `Main Menu`.
+3. Within the `Scenes` folder open the `YourScenes` folder. Right-click on an empty space in the folder and create a new Scene. Name it as `Main Menu`.
 
 ![add scene](./INSTRUCTION_images/MainMenu/addscene.PNG)
 
 4. Double click on the `Main Menu` Scene to open it. 
-5. In the Project window, click on the `Assets` folder if it is not already opended.
-6. Within the `Assets` folder, click on the `Prefabs` folder.
-7. Within the `Prefabs` folder, click on the `UserInterface` folder.
+5. In the Project window, open the `Assets` folder if it is not already opended.
+6. Within the `Assets` folder, open the `Prefabs` folder.
+7. Within the `Prefabs` folder, open the `UserInterface` folder.
 
 ![locating menus](./INSTRUCTION_images/InGameMenusInterfaces/locating_menus.PNG)
 
@@ -220,6 +228,88 @@ TODO
 
 ![edit background](./INSTRUCTION_images/MainMenu/image.PNG)
 
-## Setting Up Level Goals
+## Door Ways (Complex)
 
-### ...
+Door Ways in the context of this project allow you to enter and exit buildings and go to different Scenes in a level. In the titles of the instructions, the place a `Player` is coming from is referred to as an `Entry Way` while the place a `Player` is entering is referred to as a `Destination`.
+
+In these instructions, you will need to store the positions of an `Entry Way` and a `Destination` in different Scenes so that the `Player` starting position makes sense when entering and exiting a `DoorWay`. 
+
+### Getting the Player Starting Position In Entry Way
+
+1. Make sure to open the Scene that you want to make the `DoorWay` in.
+
+2. In the Project window, open the `Assets` folder if it is not already opended.
+3. Within the `Assets` folder, open the `Prefabs` folder.
+4. Within the `Prefabs` folder, open the `DoorWays` folder.
+
+5. Within the `DoorWays` folder, locate the prefab named `DoorWay` and drag it into the Scene Hierarchy. You can rename it to whatever you would like. This game object will be used at entrances and exits throughout your landscape, if you have buildings with doors, or entrance ways to new scenes.
+
+6. Move your `DoorWay` where you would like it to be (position it in an entrance way). Make note of the X and Y values of the `Transform` component. These are the values you will use to store the position of `OutsideDoorWay`, which will be something we can use to store the position (More Details in Step 12).
+
+7. While the `DoorWay` game object is selected, look in the "Inspector" window. In the `Door Way` script component, set the "Player" to the `Player` game object currently in the Scene Hierarchy.
+
+8. In the Project window, open the `Assets` folder if it is not already opended.
+9. Within the `Assets` folder, open the `ScriptableObjects` folder.
+10. Within the `ScriptableObjects` folder, open the `YourDoorWays` folder.
+
+11. Within the `YourDoorWays` folder, create a new folder and name it the place the `Player` is entering. For example, if you were entering your house, you would name the folder as `MyHouse`. Open the folder you just created.
+
+12. Within this folder, create a new `VectorValue` Scriptable object. This is where you will store the position of the door way in the scene you want the `Player` to go to. Name this object as `OutsideDoorWay`.
+
+13. While `OutsideDoorWay` is selected, look at the "Inspector" window. The "Initial Value" should be the coordinates (X and Y) of the outside of the door way in the current Scene. Enter the X and Y values you noted from the `DoorWay` game object in the current Scene.
+
+14. Navigate to the `ScriptableObjects` folder and open the `PlayerPosition` folder inside of it. Locate the `PlayerPosition` scriptable object and drag it into the "Player Position In Current Scene" value in the `Door Way` script component of the `DoorWay` game object.
+
+15. To get the "Player Position in Destination" value for the `Door Way` script component, you must follow the steps for `Setting Up Destination Scene`. When the Vector Value is made for the Destination Scene, then you are able to set this value.
+
+### Setting Up Destination Scene
+
+1. In the Project window, open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `Scenes` folder.
+3. Within the `Scenes` folder, open the `YourScenes` folder. In this folder, you can do either of the following: 
+- Create a new Scene. Right-click on an empty space in the folder and create a new Scene. Name it whatever you would like. For example, if you were entering your house you would name it `MyHouse`.
+- Locate a Scene that you already made. Make sure that  the Scene is equipped with a `Player`, `Landscape`, `HUD`, `InGameMenus`, and anything else you would like. Then, rename this Scene to whatever you would like. Then, copy the Scene using CTRL-C keyboard shortcut, and then pasting it with CTRL-V. (This method is better since you keep the transition from one Scene to another consistent.)
+
+![add scene](./INSTRUCTION_images/MainMenu/addscene.PNG)
+
+4. If you made a new Scene, set up the Scene with a `Player`, `Landscape`, `HUD`, `InGameMenus`, and anything else you would like.
+
+5. In the Project window, open the `Assets` folder if it is not already opended.
+6. Within the `Assets` folder, open the `Prefabs` folder.
+7. Within the `Prefabs` folder, open the `DoorWays` folder.
+
+8. Within the `DoorWays` folder, locate the prefab named `DoorWay` and drag it into the Scene Hierarchy. You can rename it to whatever you would like. This game object will be used at entrances and exits throughout your landscape, if you have buildings with doors, or entrance ways to new scenes.
+
+9. While the `DoorWay` game object is selected, look in the "Inspector" window. In the `Door Way` script component, set the "Player" to the `Player` game object currently in the Scene Hierarchy.
+
+10. Navigate to the `ScriptableObjects` folder and open the `YourDoorWays` folder inside of it. Locate the `OutsideDoorWay` scriptable object and drag it into the "Player Position In Current Scene" value in the `Door Way` script component of the `DoorWay` game object. `OutsideDoorWay` is the `Destination` of the current Scene.
+
+12. Navigate to the `ScriptableObjects` folder and open the `PlayerPosition` folder inside of it. Locate the `PlayerPosition` scriptable object and drag it into the "Player Position In Current Scene" value in the `Door Way` script component of the `DoorWay` game object.
+
+### Getting the Player Starting Position In Destination
+
+1. In the Project window, open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `ScriptableObjects` folder.
+3. Within the `ScriptableObjects` folder, open the `YourDoorWays` folder.
+
+4. Within the `YourDoorWays` folder, open the folderthe place the `Player` is entering. For example, if you were entering your house, you would name the folder as `MyHouse`. Open the folder you just created.
+
+5. Open the same folder that `OutsideDoorWay` is stored in.Within this folder, create a new `VectorValue` Scriptable object. This is where you will store the position of the door way in the scene you want the `Player` to go to. Name this object as `InsideDoorWay`.
+
+6. While `InsideDoorWay` is selected, look at the "Inspector" window. The "Initial Value" should be the coordinates (X and Y) of the inside of the door way within the destination Scene.
+
+7. Open the Scene which is considered the `Destination` for the `DoorWay` that you want the `Player` to go to from if it is not already opened. Click on the `DoorWay` game object in the Scene Hierarchy. Make note of the X and Y values of the `Transform` component. These are the values you will use for `InsideDoorWay`
+
+8. Go back to the folder in the `YourDoorWays` folder where you have the `InsideDoorWay` scriptable object. Enter the X and Y values you noted from the `DoorWay` game object in the current Scene. This will be used for the `DoorWay` game object of the other Scene you are coming from when entering this `DoorWay`
+
+9. Navigate to the `ScriptableObjects` folder and open the `PlayerPosition` folder inside of it. Locate the `PlayerPosition` scriptable object and drag it into the "Player Position In Current Scene" value in the `Door Way` script component of the `DoorWay` game object.
+
+10. Next, drag the `OutsideDoorWay` scriptable object into the "Player Position in Destination" value of the `Door Way` script component of the `DoorWay` game object.
+
+11. Now, open the Scene that is considered the `Entry Way` for this `DoorWay`.
+
+12. Select the `DoorWay` game object. Notice that the "Player Position in Destination" value is missing.
+
+12. Go back to the folder in the `YourDoorWays` folder where you have the `InsideDoorWay` scriptable object. Locate the `InsideDoorWay` scriptable object. Drag this into the "Player Position in Destination" value in the `DoorWay` script component of the `DoorWay` game object.
+
+Congratulations! You just made your own `DoorWay`! In game, the character can enter this `DoorWay` by pressing the `Attack` button (Spacebar).

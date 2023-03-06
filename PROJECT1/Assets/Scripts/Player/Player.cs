@@ -11,13 +11,19 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int health;
     public int playerScore;
-
     public bool isFacingUp;
     public bool isFacingDown;
     public bool isFacingLeft;
     public bool isFacingRight;
-
     public bool isDead;
+    public VectorValue startingPosition;
+
+    private void Start()
+    {
+        this.transform.position = startingPosition.initialValue;
+    }
+
+
 
     public void TakeHit(Enemy enemy)
     {
