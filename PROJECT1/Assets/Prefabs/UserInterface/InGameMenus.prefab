@@ -356,6 +356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1380573966143703263, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
 --- !u!224 &6280206476435338940 stripped

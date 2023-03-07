@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 6298507339231301645}
   - component: {fileID: 2803225119237125927}
   - component: {fileID: 2077685240838580455}
+  - component: {fileID: 1641458412432901362}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -459,10 +460,6 @@ MonoBehaviour:
     sceneFullName: 
     sceneType: 
     levelName: 
-  inventoryData:
-    armour: {fileID: 0}
-    weapon: {fileID: 0}
-    unequipped: []
   bossDefeatsData:
     bossesDefeated: []
   player: {fileID: 6551572282522626706}
@@ -478,6 +475,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea7ba1804293074785500c66e6b75be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1641458412432901362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883131849345417627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93aa799a0ef9e1742896814e3c04e32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 6551572282522626706}
 --- !u!1001 &5851747722869111204
 PrefabInstance:
   m_ObjectHideFlags: 0

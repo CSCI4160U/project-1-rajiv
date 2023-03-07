@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SaveManager : MonoBehaviour
 {
@@ -18,13 +19,19 @@ public class SaveManager : MonoBehaviour
         //this.armour = new Armour();
         this.playerData = new PlayerData();
 
+        LoadGame();
 
         if (MenuControls.pressedLoadGame)
         {
-            LoadGame();
+            StartCoroutine(LoadScene());
             MenuControls.pressedLoadGame = false;
         }
-            
+        if (DoorWay.enteredDoorWay)
+        {
+            DoorWay.enteredDoorWay = false;
+            //SavePlayer();
+        }
+
     }
 
     /*
@@ -32,9 +39,9 @@ public class SaveManager : MonoBehaviour
      */
     public void SaveGame()
     {
-        SaveScene();
         SavePlayer();
         SaveBossDefeats();
+        SaveScene();
         //SaveEnemies();
         //SaveLoot();
         //SaveTreasureChests();
@@ -47,7 +54,6 @@ public class SaveManager : MonoBehaviour
      */
     public void LoadGame()
     {
-        LoadScene();
         LoadPlayer();
         LoadBossDefeats();
         //LoadLoot();
@@ -55,7 +61,7 @@ public class SaveManager : MonoBehaviour
     }
 
     [ContextMenu("Save Player")]
-    void SavePlayer()
+    public void SavePlayer()
     {
         this.playerData.userName = this.player.userName;
         this.playerData.attack = this.player.GetAttackPower();
@@ -64,13 +70,18 @@ public class SaveManager : MonoBehaviour
         this.playerData.health = this.player.GetCurrentHealth();
         this.playerData.playerScore = this.player.playerScore;
         this.playerData.isDead = this.player.isDead;
-        this.playerData.playerPosition = this.player.transform.position;
+
+        if (!DoorWay.enteredDoorWay)
+        {
+            this.playerData.playerPosition = this.player.transform.position;
+        }
+        
 
         JSONLoaderSaver.SavePlayerDataAsJSON(savePath, "playerData.json",this.playerData);
         //BinaryLoaderSaver.SavePlayerAsBinary(savePath, "player.bin",this.playerData);
     }
     [ContextMenu("Load Player")]
-    void LoadPlayer()
+    public void LoadPlayer()
     {
         this.playerData = JSONLoaderSaver.LoadPlayerDataFromJSON(savePath, "playerData.json");
 
@@ -85,7 +96,11 @@ public class SaveManager : MonoBehaviour
             this.player.SetHealth(playerData.health);
             this.player.playerScore = playerData.playerScore;
             this.player.isDead = playerData.isDead;
-            this.player.transform.position = playerData.playerPosition;
+
+            if (!DoorWay.enteredDoorWay)
+            {
+                this.player.transform.position = playerData.playerPosition;
+            }
         }
     }
 
@@ -104,16 +119,24 @@ public class SaveManager : MonoBehaviour
         //BinaryLoaderSaver.SavePlayerAsBinary(savePath, "player.bin",this.playerData);
     }
     [ContextMenu("Load Scene")]
-    void LoadScene()
+    IEnumerator LoadScene()
     {
         this.sceneData = JSONLoaderSaver.LoadSceneDataFromJSON(savePath, "sceneData.json");
+        
+        yield return new WaitForSeconds(5);
 
-        if(sceneData != null)
+        if (sceneData != null)
         {
             if(SceneManager.GetActiveScene().name != sceneData.sceneFullName)
             {
                 // switch to correct scene
-                SceneManager.LoadScene(sceneData.sceneFullName);
+                AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneData.sceneFullName);
+
+                while (!asyncOperation.isDone)
+                {
+                    yield return null;
+                }
+
             } 
         }
         else

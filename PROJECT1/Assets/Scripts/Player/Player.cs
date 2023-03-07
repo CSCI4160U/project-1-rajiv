@@ -29,12 +29,16 @@ public class Player : MonoBehaviour
 
     public List<Enemy> bossesDefeated = new List<Enemy>();
 
-    private void Start()
+    private void Awake()
     {
         currentAttack = defaultAttack;
         currentDefense = defaultDefense;
         health = maxHealth;
-        this.transform.position = startingPosition.initialValue;
+
+        if (startingPosition != null)
+        {
+            this.transform.position = startingPosition.initialValue;
+        }
     }
 
 
@@ -53,14 +57,23 @@ public class Player : MonoBehaviour
     public void UpdateHealthSlider()
     {
         GameObject healthSlider = GameObject.Find("HealthSlider");
-        healthSlider.GetComponent<Slider>().maxValue = maxHealth;
-        healthSlider.GetComponent<Slider>().value = health;
+
+        if (healthSlider != null)
+        {
+            healthSlider.GetComponent<Slider>().maxValue = maxHealth;
+            healthSlider.GetComponent<Slider>().value = health;
+        }
     }
 
     public void UpdatePlayerScore()
     {
         GameObject scoreNumber = GameObject.Find("ScoreNumber");
-        scoreNumber.GetComponent<TMP_Text>().text = playerScore.ToString();
+
+        if (scoreNumber != null)
+        {
+            scoreNumber.GetComponent<TMP_Text>().text = playerScore.ToString();
+        }
+        
     }
 
     private void Update()

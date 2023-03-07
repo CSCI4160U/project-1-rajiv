@@ -33,7 +33,8 @@ public class MenuControls : MonoBehaviour
 
         // IDEA: replace with a scene in limbo, that has a Game Object with SaveManager.cs
         // (Can't work cuz it needs player as a public variable)
-        SceneManager.LoadScene("MainScene_Level1");
+        // Change to Loading Scene
+        SceneManager.LoadScene("LoadingScene");
         //Debug.Log("Test: " + SaveManager.sceneData.sceneFullName);
     }
 

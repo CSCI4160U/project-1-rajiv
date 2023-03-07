@@ -233,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471729978625878209, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3714977814837418537, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_BodyType
@@ -423,7 +423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471729978625878209, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3534292689332899483, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_Size.x
@@ -1174,7 +1174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471729978625878209, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3534292689332899483, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_Size.x
@@ -1367,6 +1367,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3178352785014571098, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063755501363947385, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4268061985754948865, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
       propertyPath: m_ReferenceResolution.x
       value: 800
@@ -1506,7 +1514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471729978625878209, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3534292689332899483, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_Size.x

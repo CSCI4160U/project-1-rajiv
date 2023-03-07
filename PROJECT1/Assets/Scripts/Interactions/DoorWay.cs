@@ -14,6 +14,8 @@ public class DoorWay : MonoBehaviour
     public bool requiresKey = false;
     public float requiredDistance = 5f;
 
+    public static bool enteredDoorWay = false;
+
     private void Start()
     {
         Debug.Log(this.gameObject.name);
@@ -53,6 +55,9 @@ public class DoorWay : MonoBehaviour
                         playerPositionInCurrentScene.initialValue = playerPositionInDestination.initialValue;
 
                         SceneManager.LoadScene(destination);
+
+                        enteredDoorWay = true;
+                        player.GetComponent<SaveManager>().SavePlayer();
                     }
                 }
                 else
