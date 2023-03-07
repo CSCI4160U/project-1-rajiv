@@ -169,28 +169,7 @@ The following instructions apply to the `Enemy` game object(s) only:
 
 ## In-Game Menus / Interfaces
 
-1. In the Project window, open the `Assets` folder if it is not already opended.
-2. Within the `Assets` folder, open the `Prefabs` folder.
-3. Within the `Prefabs` folder, open the `UserInterface` folder.
-
-![locating menus](./INSTRUCTION_images/InGameMenusInterfaces/locating_menus.PNG)
-
-4. Within the `UserInterface` folder, locate the prefab called `InGameMenus` and drag it into the Scene Hierarchy. You will see a bunch of the menus layered on top of each other. In Game Mode, they will only be shown if the Player toggles them.
-
-![menu into scene](./INSTRUCTION_images/InGameMenusInterfaces/dragmenu.PNG)
-
-### Heads Up Display (HUD)
-
-- Within the `UserInterface` folder, locate the prefab called `HUD` and drag it into the Scene Hierarchy.
-
-If you want to see the rest of the scene more easily, make the `InGameMenus` game object inactive.
-
-![inactive](./INSTRUCTION_images/InGameMenusInterfaces/inactive.PNG)
-
-
-### Inventory Customization
-
-TODO
+Each `Player` prefab has a built-in `InGameMenus` in it. You will see a bunch of the menus layered on top of each other. In Game Mode, they will only be shown if the `Player` toggles them.
 
 ### Pause Menu Customization
 
@@ -199,6 +178,14 @@ TODO
 ### Death Screen Customization
 
 TODO
+
+### Heads Up Display (HUD)
+
+- Within the `UserInterface` folder, locate the prefab called `HUD` and drag it into the Scene Hierarchy.
+
+If you want to see the rest of the scene more easily, make the `InGameMenus` game object inactive.
+
+![inactive](./INSTRUCTION_images/InGameMenusInterfaces/inactive.PNG)
 
 ## Main Menu
 

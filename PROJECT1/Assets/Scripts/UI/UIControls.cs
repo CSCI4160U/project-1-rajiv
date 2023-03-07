@@ -32,7 +32,8 @@ public class UIControls : MonoBehaviour
         GameObject deathScreen = GameObject.Find("DeathScreen");
 
 
-        if (deathScreen != null) { 
+        if (deathScreen != null)
+        {
             deathScreen.GetComponent<Canvas>().enabled = deathScreenIsShown;
         }
 
@@ -45,10 +46,5 @@ public class UIControls : MonoBehaviour
         {
             deathScreenIsShown = false;
         }
-    }
-
-    public void SetPauseMenuShown(bool value)
-    {
-        this.pauseMenuIsShown = value;
     }
 }

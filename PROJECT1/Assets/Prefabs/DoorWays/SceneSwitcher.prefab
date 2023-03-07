@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7506654139836071698
 Transform:
   m_ObjectHideFlags: 0
@@ -131,12 +131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2343b6adb0755408e5a2013b699120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: Inn_Level1
+  destination: 
   player: {fileID: 0}
   playerPositionInDestination: {fileID: 0}
   playerPositionInCurrentScene: {fileID: 0}
   scoreRequired: 0
-  requiredDistance: 5
+  requiredDistance: 2
 --- !u!50 &3932778574742913731
 Rigidbody2D:
   serializedVersion: 4
