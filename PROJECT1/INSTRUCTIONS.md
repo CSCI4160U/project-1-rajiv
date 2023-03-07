@@ -160,6 +160,7 @@ The following instructions apply to the `Enemy` game object(s) only:
 - "Defense" = 5
 - "Max Health" = 50
 - "Health" = 0
+- "Number Of Lives" = 1
 - "Value" = 100 (The amount added to Player Score when defeated)
 
 4. In the `Enemy Movement` script component, drag the `Player` game object into the "Player" value for the component (This is what the Enemy will follow and try to defeat). Set Movement Speed to 1. Set Hostile Radius to 7. You can adjust the values of these fields if you want.

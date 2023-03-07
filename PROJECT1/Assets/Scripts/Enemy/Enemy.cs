@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 50;
     public int health;
     public bool isDead = false;
+    public int numberOfLives;
     public int value;
 
 
@@ -37,11 +39,31 @@ public class Enemy : MonoBehaviour
             {
                 Die();
                 isDead = true;
+                numberOfLives -= 1;
+
+                if (RanOutOfLives())
+                {
+                    // add to bosses defeated, with its corresponding scene
+                    player.bossesDefeatedNames.Add(gameObject.name);
+                    player.bossesDefeatedScenes.Add(SceneManager.GetActiveScene().name);
+                }
+
                 // increase player score
                 player.playerScore += value;
             }
+        }  
+    }
+
+    private bool RanOutOfLives()
+    {
+        if(numberOfLives == 0)
+        {
+            // hide game object
+            this.gameObject.SetActive(false);
+
+            return true;
         }
-        
+        return false;
     }
 
     private void Die()
@@ -75,5 +97,10 @@ public class Enemy : MonoBehaviour
 
         // reset health
         Start();
+    }
+
+    private void Update()
+    {
+        RanOutOfLives();
     }
 }

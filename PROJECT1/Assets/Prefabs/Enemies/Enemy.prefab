@@ -109,6 +109,7 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   isDead: 0
+  numberOfLives: 1
   value: 0
 --- !u!114 &631103164711014354
 MonoBehaviour:

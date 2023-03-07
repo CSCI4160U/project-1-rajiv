@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
@@ -42,7 +43,6 @@ public class SaveManager : MonoBehaviour
         SavePlayer();
         SaveBossDefeats();
         SaveScene();
-        //SaveEnemies();
         //SaveLoot();
         //SaveTreasureChests();
 
@@ -148,7 +148,8 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("Save BossDefeats")]
     void SaveBossDefeats()
     {
-        this.bossDefeatsData.bossesDefeated = player.bossesDefeated;
+        this.bossDefeatsData.bossesDefeatedNames = player.bossesDefeatedNames;
+        this.bossDefeatsData.bossesDefeatedScenes = player.bossesDefeatedScenes;
 
         JSONLoaderSaver.SaveBossDefeatsDataAsJSON(savePath, "bossDefeatsData.json", this.bossDefeatsData);
         //BinaryLoaderSaver.SavePlayerAsBinary(savePath, "player.bin",this.playerData);
@@ -162,8 +163,21 @@ public class SaveManager : MonoBehaviour
 
         if (bossDefeatsData != null)
         {
-            player.bossesDefeated = bossDefeatsData.bossesDefeated;
+            player.bossesDefeatedNames = bossDefeatsData.bossesDefeatedNames;
+            player.bossesDefeatedScenes = bossDefeatsData.bossesDefeatedScenes;
+        }
+
+        for(int i = 0; i < player.bossesDefeatedNames.Count; i++)
+        {
+            GameObject bossDefeated = GameObject.Find(player.bossesDefeatedNames[i]);
+
+            // if currentBoss is an Enemy present in the scene
+            if (bossDefeated != null && bossDefeated.GetComponent<Enemy>() != null 
+                && SceneManager.GetActiveScene().name == player.bossesDefeatedScenes[i])
+            {
+                // hide boss that was already defeated
+                bossDefeated.SetActive(false);
+            }
         }
     }
-
 }

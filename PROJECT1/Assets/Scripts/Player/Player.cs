@@ -27,7 +27,11 @@ public class Player : MonoBehaviour
 
     public VectorValue startingPosition;
 
-    public List<Enemy> bossesDefeated = new List<Enemy>();
+    // stores Enemy names
+    public List<string> bossesDefeatedNames = new List<string>();
+
+    // store Scene names where Enemy was defeated
+    public List<string> bossesDefeatedScenes = new List<string>();
 
     private void Awake()
     {

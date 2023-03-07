@@ -656,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7415217432306665427, guid: 2ffeaf929d5eeb44787d0e375faae66f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8574525273870810587, guid: 2ffeaf929d5eeb44787d0e375faae66f, type: 3}
       propertyPath: m_RootOrder
@@ -1307,6 +1307,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2038671061203459352, guid: fe4ec1e149527434a957c1e2004fcefe, type: 3}
+      propertyPath: requiresPlayerAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038671061203459352, guid: fe4ec1e149527434a957c1e2004fcefe, type: 3}
       propertyPath: playerPositionInDestination
       value: 
       objectReference: {fileID: 11400000, guid: ccf5b58ccd0dfa14f8ac46c6ad28e666, type: 2}
@@ -1381,7 +1385,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2691636952769616046, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -11.460022
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 3178352785014571098, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1575,6 +1579,10 @@ PrefabInstance:
     - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: maxHealth
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
+      propertyPath: numberOfLives
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6747906217487458406, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_FlipX

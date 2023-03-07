@@ -5,10 +5,16 @@ public class EnemySpawning : MonoBehaviour
 {
 
     public int timeToRespawn = 10;
+    private Enemy enemy = null;
+
+    private void Awake()
+    {
+        enemy = this.GetComponent<Enemy>();
+    }
 
     private void Update()
     {
-        if (this.GetComponent<Enemy>().isDead)
+        if (enemy.isDead && enemy.numberOfLives > 0)
         {
             Revive();
         }
@@ -25,7 +31,6 @@ public class EnemySpawning : MonoBehaviour
         // cool down for 30 seconds
         yield return new WaitForSeconds(timeToRespawn);
 
-        this.GetComponent<Enemy>().Revive();
-
+        enemy.Revive();
     }
 }

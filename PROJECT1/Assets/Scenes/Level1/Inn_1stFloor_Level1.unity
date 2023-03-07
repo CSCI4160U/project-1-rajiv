@@ -2004,7 +2004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9050559454604690999, guid: a866a53c5c1939e4fb6dddde603b95b3, type: 3}
       propertyPath: m_Name
-      value: YourLandscape
+      value: Inn
       objectReference: {fileID: 0}
     - target: {fileID: 9050559454798441158, guid: a866a53c5c1939e4fb6dddde603b95b3, type: 3}
       propertyPath: m_Tiles.Array.size
@@ -2125,6 +2125,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2038671061203459352, guid: fe4ec1e149527434a957c1e2004fcefe, type: 3}
       propertyPath: requiresAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038671061203459352, guid: fe4ec1e149527434a957c1e2004fcefe, type: 3}
+      propertyPath: requiredDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038671061203459352, guid: fe4ec1e149527434a957c1e2004fcefe, type: 3}
+      propertyPath: requiresPlayerAction
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2038671061203459352, guid: fe4ec1e149527434a957c1e2004fcefe, type: 3}
@@ -2714,6 +2722,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3178352785014571098, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063755501363947385, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4268061985754948865, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
       propertyPath: m_ReferenceResolution.x
       value: 800

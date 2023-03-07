@@ -11,7 +11,6 @@ public class DoorWay : MonoBehaviour
     public VectorValue playerPositionInCurrentScene;
 
     public int scoreRequired = 0;
-    public bool requiresKey = false;
     public float requiredDistance = 5f;
 
     public static bool enteredDoorWay = false;
@@ -24,6 +23,19 @@ public class DoorWay : MonoBehaviour
     private void Update()
     {
         CheckIfPlayerHasReachedGoal();
+    }
+
+    private void GoThroughDoorWay()
+    {
+        // You met the requirement
+        Debug.Log("You have met the requirement to pass.");
+
+        playerPositionInCurrentScene.initialValue = playerPositionInDestination.initialValue;
+
+        SceneManager.LoadScene(destination);
+
+        enteredDoorWay = true;
+        player.GetComponent<SaveManager>().SaveGame();
     }
 
     private void CheckIfPlayerHasReachedGoal()
@@ -42,26 +54,11 @@ public class DoorWay : MonoBehaviour
                 transform.GetChild(0).gameObject.SetActive(true);
 
                 // if player has reached score required
-                if (player.playerScore >= scoreRequired && Input.GetButtonDown("Fire1"))
+                if (player.playerScore >= scoreRequired)
                 {
-                    if (requiresKey)
+                    if (Input.GetButtonDown("Fire1"))
                     {
-                        //if (player.hasKey)
-                        //{
-                        //    // You won the level
-                        //}
-                    }
-                    else
-                    {
-                        // You met the requirement
-                        Debug.Log("You have met the requirement to pass.");
-
-                        playerPositionInCurrentScene.initialValue = playerPositionInDestination.initialValue;
-
-                        SceneManager.LoadScene(destination);
-
-                        enteredDoorWay = true;
-                        player.GetComponent<SaveManager>().SavePlayer();
+                        GoThroughDoorWay();
                     }
                 }
                 else
