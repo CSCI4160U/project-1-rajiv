@@ -13,7 +13,12 @@ public class UIControls : MonoBehaviour
 
     public void TogglePauseMenu(bool continueGameButtonPressed)
     {
-        GameObject.Find("PauseMenu").GetComponent<Canvas>().enabled = pauseMenuIsShown;
+        GameObject pauseMenu = GameObject.Find("PauseMenu");
+
+        if (pauseMenu != null)
+        {
+            pauseMenu.GetComponent<Canvas>().enabled = pauseMenuIsShown;
+        }
 
         if ((Input.GetKeyDown(KeyCode.Escape) || continueGameButtonPressed))
         {
@@ -24,7 +29,12 @@ public class UIControls : MonoBehaviour
 
     public void ShowDeathScreen()
     {
-        GameObject.Find("DeathScreen").GetComponent<Canvas>().enabled = deathScreenIsShown;
+        GameObject deathScreen = GameObject.Find("DeathScreen");
+
+
+        if (deathScreen != null) { 
+            deathScreen.GetComponent<Canvas>().enabled = deathScreenIsShown;
+        }
 
         if (this.GetComponent<Player>().isDead)
         {

@@ -35,10 +35,14 @@ public class DoorWay : MonoBehaviour
             float distanceBetween = Vector2.Distance(this.transform.position, player.transform.position);
 
             // if player is within the required distance and has pressed attack button
-            if (distanceBetween <= requiredDistance && (Input.GetButtonDown("Fire1")))
+            if (distanceBetween <= requiredDistance)
             {
+
+                // show hint on how to open door
+                transform.GetChild(0).gameObject.SetActive(true);
+
                 // if player has reached score required
-                if (player.playerScore >= scoreRequired)
+                if (player.playerScore >= scoreRequired && Input.GetButtonDown("Fire1"))
                 {
                     if (requiresKey)
                     {
@@ -64,6 +68,11 @@ public class DoorWay : MonoBehaviour
                 {
                     Debug.Log("You need a score of " + scoreRequired + " to progress. CURRENT SCORE: " + player.playerScore + "/" + scoreRequired + ".");
                 }
+            }
+            else
+            {
+                // hide hint on how to open door
+                transform.GetChild(0).gameObject.SetActive(false);
             }
 
         }
