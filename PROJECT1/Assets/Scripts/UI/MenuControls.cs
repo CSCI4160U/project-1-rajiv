@@ -1,9 +1,38 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuControls : MonoBehaviour
 {
     public static bool pressedLoadGame = false;
+    public static bool pressedCreateGame = false;
+    public static string newUserName;
+
+    private TMP_InputField inputField = null;
+
+    private void Start()
+    {
+        GameObject enterUserName = GameObject.Find("EnterUserName");
+        newUserName = string.Empty;
+
+        if (enterUserName != null)
+        {
+            inputField = enterUserName.GetComponent<TMP_InputField>();
+        }
+    }
+
+    private void Update()
+    {
+        if(inputField != null)
+        {
+            inputField.onValueChanged.AddListener(delegate { UserNameEntered(); });
+        }
+    }
+
+    private void UserNameEntered()
+    {
+        newUserName = inputField.text;
+    }
 
     public void GoToMainMenu()
     {
@@ -20,7 +49,16 @@ public class MenuControls : MonoBehaviour
 
         // if confirmed
             // go to level 1
-            SceneManager.LoadScene("MainScene_Level1");
+            if(newUserName != string.Empty)
+            {
+                SceneManager.LoadScene("MainScene_Level1");
+                pressedCreateGame = true;
+            }
+            else
+            {
+                Debug.Log("Must Enter Username to continue.");
+            }
+            
             //SceneManager.LoadScene("MainScene");
     }
 

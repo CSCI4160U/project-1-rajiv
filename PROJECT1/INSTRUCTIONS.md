@@ -137,15 +137,11 @@ Drag this into the slot of the "Starting Position" for the `Player` script. This
 
 3. Locate the `Player Input` script component, set the "Run Speed" to 3. Feel free to adjust this if you would like.
 
-4. Locate the `Inventory` script component, this is where you store items such as armour, weapons, healing potions, etc.
+4. Locate the `Dealing Damage` script component, set "Attack Range" to 1. Set "Enemy Layers" to "Enemies". The `UpAttackPoint`,`DownAttackPoint`, `LeftAttackPoint` and `RightAttackPoint` are where the player can attack in all directions.
 
-5. Locate the `Dealing Damage` script component, set "Attack Range" to 1. Set "Enemy Layers" to "Enemies". The `UpAttackPoint`,`DownAttackPoint`, `LeftAttackPoint` and `RightAttackPoint` are where the player can attack in all directions.
+5. In the `Save Manager` script component, you can save the details about the Player's progress in the game.
 
-6. In the `Save Manager` script component, you can save the details about the Player's progress in the game.
-
-7. The `UI Controls` script component, allows the Player to control the User Interface, like pausing the game, showing inventory, etc.
-
-8. The `Inventory` script component stores the equipment that a Player has acquired or equipped.
+6. The `UI Controls` script component, allows the Player to control the User Interface, like pausing the game, showing current level, etc.
 
 ### Enemy Sprite
 
@@ -161,11 +157,12 @@ The following instructions apply to the `Enemy` game object(s) only:
 - "Max Health" = 50
 - "Health" = 0
 - "Number Of Lives" = 1
+- "Revive Time" = 20
 - "Value" = 100 (The amount added to Player Score when defeated)
 
-4. In the `Enemy Movement` script component, drag the `Player` game object into the "Player" value for the component (This is what the Enemy will follow and try to defeat). Set Movement Speed to 1. Set Hostile Radius to 7. You can adjust the values of these fields if you want.
+**Note:** If the "Number Of Lives" is greater than 1, the Enemy is able to Revive. Set the "Revive Time" variable how you want.
 
-5. In the `Enemy Spawning` script component, set "Time To Respawn" to 20, or any integer value you want.
+4. In the `Enemy Movement` script component, drag the `Player` game object into the "Player" value for the component (This is what the Enemy will follow and try to defeat). Set Movement Speed to 1. Set Hostile Radius to 7. You can adjust the values of these fields if you want.
 
 ## In-Game Menus / Interfaces
 

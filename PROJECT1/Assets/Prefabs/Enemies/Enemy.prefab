@@ -110,6 +110,7 @@ MonoBehaviour:
   health: 50
   isDead: 0
   numberOfLives: 1
+  reviveTime: 20
   value: 0
 --- !u!114 &631103164711014354
 MonoBehaviour:
@@ -221,4 +222,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117bb67119f824842bf6493ea9a8c2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToRespawn: 20

@@ -58,6 +58,7 @@ public class DoorWay : MonoBehaviour
                 {
                     if (Input.GetButtonDown("Fire1"))
                     {
+                        Debug.Log("Went through a door way.");
                         GoThroughDoorWay();
                     }
                 }

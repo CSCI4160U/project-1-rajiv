@@ -12,6 +12,12 @@ public class SaveManager : MonoBehaviour
     public Player player = null;
     private string savePath;
 
+    private void Awake()
+    {
+        // set player userName
+        this.player.userName = MenuControls.newUserName;
+    }
+
     private void Start()
     {
 
@@ -19,20 +25,32 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Saving to path: " + savePath);
         //this.armour = new Armour();
         this.playerData = new PlayerData();
+        this.sceneData = new SceneData();
+        this.bossDefeatsData = new BossDefeatsData();
 
-        LoadGame();
-
-        if (MenuControls.pressedLoadGame)
+        if (!MenuControls.pressedCreateGame)
         {
-            StartCoroutine(LoadScene());
-            MenuControls.pressedLoadGame = false;
-        }
-        if (DoorWay.enteredDoorWay)
-        {
-            DoorWay.enteredDoorWay = false;
-            //SavePlayer();
-        }
+            LoadGame();
 
+            if (MenuControls.pressedLoadGame)
+            {
+                StartCoroutine(LoadScene());
+                MenuControls.pressedLoadGame = false;
+            }
+            if (DoorWay.enteredDoorWay)
+            {
+                DoorWay.enteredDoorWay = false;
+            }
+        }
+        else
+        {
+            // create new game save
+            SaveGame();
+            LoadGame();
+            // reset Menu Controls variables
+            MenuControls.pressedCreateGame = false;
+            MenuControls.newUserName = string.Empty;
+        }
     }
 
     /*

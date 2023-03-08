@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public bool isDead = false;
     public int numberOfLives;
+    public float reviveTime;
     public int value;
 
 

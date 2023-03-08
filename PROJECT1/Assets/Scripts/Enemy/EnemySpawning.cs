@@ -3,8 +3,6 @@ using System.Collections;
 
 public class EnemySpawning : MonoBehaviour
 {
-
-    public int timeToRespawn = 10;
     private Enemy enemy = null;
 
     private void Awake()
@@ -29,7 +27,7 @@ public class EnemySpawning : MonoBehaviour
     {
 
         // cool down for 30 seconds
-        yield return new WaitForSeconds(timeToRespawn);
+        yield return new WaitForSeconds(enemy.reviveTime);
 
         enemy.Revive();
     }
