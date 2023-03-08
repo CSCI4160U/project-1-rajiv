@@ -245,7 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: attack
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: health
@@ -254,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: maxHealth
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
+      propertyPath: numberOfLives
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6747906217487458406, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_FlipX
@@ -468,6 +472,10 @@ PrefabInstance:
     - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: maxHealth
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
+      propertyPath: numberOfLives
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6747906217487458406, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_FlipX
@@ -1268,6 +1276,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
+      propertyPath: numberOfLives
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6747906217487458406, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -1630,7 +1642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4188060597135766837, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: numberOfLives
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6747906217487458406, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_FlipX

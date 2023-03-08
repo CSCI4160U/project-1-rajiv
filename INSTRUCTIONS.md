@@ -8,8 +8,9 @@
 
 2. Stephen Challener (Redshrike) and Jetrel, hosted by OpenGameArt.org (https://opengameart.org/content/16x16-indoor-rpg-tileset-the-baseline)
 
-3. Nimrod (https://opengameart.org/content/potion-bottles-1-0
-)
+3. Nimrod (https://opengameart.org/content/potion-bottles-1-0)
+
+4. bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike) (https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/)
 
 ## Getting Started
 
