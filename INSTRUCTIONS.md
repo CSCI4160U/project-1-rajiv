@@ -1,6 +1,6 @@
 # HOW TO MAKE A SINGLE PLAYER TOP-DOWN 2D GAME
 
-## ---Attribution---
+## ATTRIBUTION
 
 1. ansimuz 
     - https://opengameart.org/content/rpg-town-pixel-art-assets
@@ -177,10 +177,6 @@ The following instructions apply to the `Enemy` game object(s) only:
 
 4. In the `Enemy Movement` script component, drag the `Player` game object into the "Player" value for the component (This is what the Enemy will follow and try to defeat). Set Movement Speed to 1. Set Hostile Radius to 7. You can adjust the values of these fields if you want.
 
-## Adding Treasure Chests
-
-TODO
-
 ## In-Game Menus / Interfaces Customization
 
 Each `Player` prefab has a built-in `InGameMenus` in it. You will see a bunch of the menus layered on top of each other. In Game Mode, they will only be shown if the `Player` toggles them.
@@ -215,23 +211,31 @@ If you want to see the rest of the scene more easily, make the `InGameMenus` gam
 
 8. Within the `UserInterface` folder, locate the prefab called `MainMenu`. Drag `Main Menu` into the Scene Hierarchy.
 
-9. Within the Scene Hierarchy, open the children of `MainMenu` and locate `MenuInterface`. Open the children of `MenuInterface` and select the `Background` game object. 
+9. Go to a child of `MainMenu` named `CreateNewGame` and find the `Create New Game (Script)` component. 
+
+![find CreateNewGame](./INSTRUCTION_images/InGameMenusInterfaces/findcreate.PNG)
+
+10. In the `Create New Game (Script)` component, set the "First Level Name" to the first Scene that you want your `Player` to be in. **Note:** Make sure you spell it correctly, since this value is case sensitive.
+
+![set Level 1](./INSTRUCTION_images/InGameMenusInterfaces/findcreate.PNG)
+
+11. Within the Scene Hierarchy, open the children of `MainMenu` and locate `MenuInterface`. Open the children of `MenuInterface` and select the `Background` game object. 
 
 ![locating background](./INSTRUCTION_images/MainMenu/locate_background.PNG)
 
-10. In the "Inspector" window, locate the Image component. You can customize the Image of the background of the main menu, or change the color. Be creative!
+12. In the "Inspector" window, locate the Image component. You can customize the Image of the background of the main menu, or change the color. Be creative!
 
 ![edit background](./INSTRUCTION_images/MainMenu/image.PNG)
 
-11. You can also change the color and size of text across the `MainMenu`. Locate game objects with "Label" in the name. Select one of these objects, for example, `MainMenuLabel`.
+13. You can also change the color and size of text across the `MainMenu`. Locate game objects with "Label" in the name. Select one of these objects, for example, `MainMenuLabel`.
 
 ![find label](./INSTRUCTION_images/MainMenu/findlabel.PNG)
 
-12. While `MainMenuLabel` is selected, see the "Inspector" window and locate the `TextMeshPro - Text (UI)` component. This is where you can change the text of the Main Menu Title. Under "Text Input" Change "INSOMNIA" to "My Game" or whatever you would like.
+14. While `MainMenuLabel` is selected, see the "Inspector" window and locate the `TextMeshPro - Text (UI)` component. This is where you can change the text of the Main Menu Title. Under "Text Input" Change "INSOMNIA" to "My Game" or whatever you would like.
 
 ![change label](./INSTRUCTION_images/MainMenu/mygame.PNG)
 
-13. In the `TextMeshPro - Text (UI)` component, change the "Vertex Color" to any color you want. This changes the color of your text.
+15. In the `TextMeshPro - Text (UI)` component, change the "Vertex Color" to any color you want. This changes the color of your text.
 
 ![change color](./INSTRUCTION_images/MainMenu/changecolor.PNG)
 
@@ -360,17 +364,17 @@ In these instructions, you will need to store the positions of an `Entry Way` an
 
 ![InsideDoorWay Vector Value](./INSTRUCTION_images/DoorWays/entervalvv2.PNG)
 
-11. Now, open the Scene that is considered the `Entry Way` for this `DoorWay` to enter the missing "Player Position in Destination" value inthe `DoorWay` game object.
+9. Now, open the Scene that is considered the `Entry Way` for this `DoorWay` to enter the missing "Player Position in Destination" value inthe `DoorWay` game object.
 
-12. Select the `DoorWay` game object. Notice that the "Player Position in Destination" value is missing.
+10. Select the `DoorWay` game object. Notice that the "Player Position in Destination" value is missing.
 
 ![Missing Vector Value](./INSTRUCTION_images/DoorWays/missing.PNG)
 
-12. Go back to the folder in the `YourDoorWays` folder where you have the `InsideDoorWay` scriptable object. Locate the `InsideDoorWay` scriptable object. 
+11. Go back to the folder in the `YourDoorWays` folder where you have the `InsideDoorWay` scriptable object. Locate the `InsideDoorWay` scriptable object. 
 
 ![create InsideDoorWay](./INSTRUCTION_images/DoorWays/makeinsidevv.PNG)
 
-Drag this into the "Player Position in Destination" value in the `DoorWay` script component of the `DoorWay` game object.
+12. Drag `InsideDoorWay` into the "Player Position in Destination" value in the `DoorWay` script component of the `DoorWay` game object.
 
 ![script component](./INSTRUCTION_images/DoorWays/scriptcomp5.PNG)
 

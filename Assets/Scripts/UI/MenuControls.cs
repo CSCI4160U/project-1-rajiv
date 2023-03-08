@@ -5,34 +5,6 @@ using TMPro;
 public class MenuControls : MonoBehaviour
 {
     public static bool pressedLoadGame = false;
-    public static bool pressedCreateGame = false;
-    public static string newUserName;
-
-    private TMP_InputField inputField = null;
-
-    private void Start()
-    {
-        GameObject enterUserName = GameObject.Find("EnterUserName");
-        newUserName = string.Empty;
-
-        if (enterUserName != null)
-        {
-            inputField = enterUserName.GetComponent<TMP_InputField>();
-        }
-    }
-
-    private void Update()
-    {
-        if(inputField != null)
-        {
-            inputField.onValueChanged.AddListener(delegate { UserNameEntered(); });
-        }
-    }
-
-    private void UserNameEntered()
-    {
-        newUserName = inputField.text;
-    }
 
     public void GoToMainMenu()
     {
@@ -40,27 +12,7 @@ public class MenuControls : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void CreateNewGame()
-    {
-        Debug.Log("Created a new game");
-
-        // if save file already exists
-            // are you sure you would like to overwrite your saved game?
-
-        // if confirmed
-            // go to level 1
-            if(newUserName != string.Empty)
-            {
-                SceneManager.LoadScene("MainScene_Level1");
-                pressedCreateGame = true;
-            }
-            else
-            {
-                Debug.Log("Must Enter Username to continue.");
-            }
-            
-            //SceneManager.LoadScene("MainScene");
-    }
+    
 
     public void LoadGame()
     {

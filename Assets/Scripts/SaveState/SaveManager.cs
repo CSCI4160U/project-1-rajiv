@@ -15,7 +15,7 @@ public class SaveManager : MonoBehaviour
     private void Awake()
     {
         // set player userName
-        this.player.userName = MenuControls.newUserName;
+        this.player.userName = CreateNewGame.newUserName;
     }
 
     private void Start()
@@ -28,7 +28,7 @@ public class SaveManager : MonoBehaviour
         this.sceneData = new SceneData();
         this.bossDefeatsData = new BossDefeatsData();
 
-        if (!MenuControls.pressedCreateGame)
+        if (!CreateNewGame.pressedCreateGame)
         {
             LoadGame();
 
@@ -48,8 +48,8 @@ public class SaveManager : MonoBehaviour
             SaveGame();
             LoadGame();
             // reset Menu Controls variables
-            MenuControls.pressedCreateGame = false;
-            MenuControls.newUserName = string.Empty;
+            CreateNewGame.pressedCreateGame = false;
+            CreateNewGame.newUserName = string.Empty;
         }
     }
 
