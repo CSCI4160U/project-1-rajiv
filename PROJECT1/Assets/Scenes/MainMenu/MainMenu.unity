@@ -2808,6 +2808,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2229184851987618467, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
+      propertyPath: m_Name
+      value: MainMenuLabel
+      objectReference: {fileID: 0}
     - target: {fileID: 3841671706930316979, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_Name
       value: MainMenu
@@ -2822,7 +2826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4397742164579284304, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4397742165342150797, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_IsActive
@@ -2906,7 +2910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6630865474995013513, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -400
+      value: -385
       objectReference: {fileID: 0}
     - target: {fileID: 6630865475599118901, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_fontSize
@@ -2938,7 +2942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6630865476412824907, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -500
+      value: -495
       objectReference: {fileID: 0}
     - target: {fileID: 6630865476766118945, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2946,7 +2950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6630865476766118945, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -600
+      value: -605
       objectReference: {fileID: 0}
     - target: {fileID: 6630865476882442487, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_fontSize
@@ -3046,7 +3050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8230624599231075295, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_text
-      value: INSOMNIA
+      value: My Game
       objectReference: {fileID: 0}
     - target: {fileID: 8302569703578267283, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_Color.a
@@ -3141,12 +3145,24 @@ PrefabInstance:
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 8302569704475262289, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302569704475262289, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -300
+      value: -275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302569704475262302, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302569704475262303, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8302569704828570150, guid: 2d952964f5814c2489c81cc89d748134, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d952964f5814c2489c81cc89d748134, type: 3}

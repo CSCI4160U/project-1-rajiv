@@ -1,9 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TreasureChest : MonoBehaviour
 {
     public static bool chestIsOpen = false;
     public Player player = null;
+    private List<Equipment> chestItems = null;
 
     private void Update()
     {
