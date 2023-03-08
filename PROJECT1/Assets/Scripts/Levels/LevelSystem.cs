@@ -43,7 +43,6 @@ public class LevelSystem : MonoBehaviour
                 levelSlider.GetComponent<Slider>().maxValue = nextLvl.scoreRequired - currentLvl.scoreRequired;
                 levelSlider.GetComponent<Slider>().value = player.playerScore - currentLvl.scoreRequired;
             }
-            
 
             // Updating Text in HUD
             if(currentLvlInHUD != null && nextLvlInHUD != null)
@@ -51,8 +50,22 @@ public class LevelSystem : MonoBehaviour
                 currentLvlInHUD.GetComponent<TMP_Text>().text = currentLvl.levelName;
                 nextLvlInHUD.GetComponent<TMP_Text>().text = nextLvl.levelName;
             }
+
+            Debug.Log("---NEW LEVEL ACQUIRED---");
+            Debug.Log(player.userName + " has reached " +currentLvl+"!");
+            Debug.Log("\n"+ player.userName + " now has:");
+
+            // Updating Player Attack
+            player.SetAttackPower(currentLvl.attackBoost + player.defaultAttack);
+
+            Debug.Log("+" + currentLvl.attackBoost + " Attack ["+"Current Attack = "+player.GetAttackPower()+"]");
+
+            // Updating Player Defense
+            player.SetDefense(currentLvl.defenseBoost + player.defaultDefense);
+
+            Debug.Log("+" + currentLvl.defenseBoost + " Defense [" + "Current Defense = " + player.GetDefense() + "]");
         }
-        
+
     }
 
     private int getNextLevelIndex(int playerScore)
