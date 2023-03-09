@@ -73,15 +73,10 @@ public class EnemyMovement : MonoBehaviour
                 enemy.StopWalkAnimation();
             }
 
-            if(distanceFromPlayer < this.GetComponent<BoxCollider2D>().edgeRadius)
+            if(distanceFromPlayer < 2)
             {
                 enemy.DoAttackAnimation();
             }
-            //else
-            //{
-     
-            //    DefaultMovement();
-            //}
         }
     }
 }

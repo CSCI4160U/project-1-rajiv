@@ -31,6 +31,9 @@ public class Enemy : MonoBehaviour
                 health -= damage;
                 Debug.Log(player.userName + " has dealt " + damage + " damage to " + enemyName);
 
+                // show message in console
+                StartCoroutine(HUDConsole.ShowMessage(player.userName + " has dealt " + damage + " damage to " + enemyName));
+
                 // take damage animation
                 this.GetComponent<Animator>().SetTrigger("tookDamage");
             }
@@ -70,6 +73,9 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Debug.Log(enemyName + " has been defeated!");
+
+        // show message in console
+        StartCoroutine(HUDConsole.ShowMessage(enemyName + " has been defeated!"));
 
         // do death animation
         this.GetComponent<Animator>().SetTrigger("isDead");

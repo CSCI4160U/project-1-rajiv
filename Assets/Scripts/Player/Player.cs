@@ -66,6 +66,9 @@ public class Player : MonoBehaviour
 
             Debug.Log(enemy.enemyName + " has dealt " + damage + " damage to " + userName);
 
+            // show message in console
+            StartCoroutine(HUDConsole.ShowMessage(enemy.enemyName + " has dealt " + damage + " damage to " + userName));
+
             this.GetComponent<Animator>().SetTrigger("tookDamage");
             takeDamageSoundEffect.Play();
         }

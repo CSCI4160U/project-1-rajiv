@@ -304,6 +304,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 737909752}
+    - target: {fileID: 631103164711014354, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
+      propertyPath: hostileRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 631103164711014354, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
+      propertyPath: movementSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2471729978625878209, guid: 8a68da89e6ea7ae45b3ce2a68bf05b82, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1031,6 +1039,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4268061986066516454, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545186918211577874, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136092293539948182, guid: c4291497d6d847446be35ff974fb9d37, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
