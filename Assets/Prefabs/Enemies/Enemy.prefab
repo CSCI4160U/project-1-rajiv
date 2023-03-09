@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  movementSpeed: 10
+  movementSpeed: 2
   hostileRadius: 5
 --- !u!95 &7329007945543331691
 Animator:
@@ -193,7 +193,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.26506984, y: 0.24421167}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 1
 --- !u!70 &3534292689332899483
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

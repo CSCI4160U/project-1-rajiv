@@ -21,7 +21,10 @@ public class LevelSystem : MonoBehaviour
 
     private void Update()
     {
-        UpdateLevel();
+        if (!player.isDead)
+        {
+            UpdateLevel();
+        }
     }
 
     public void UpdateLevel()
@@ -51,19 +54,19 @@ public class LevelSystem : MonoBehaviour
                 nextLvlInHUD.GetComponent<TMP_Text>().text = nextLvl.levelName;
             }
 
-            Debug.Log("---NEW LEVEL ACQUIRED---");
-            Debug.Log(player.userName + " has reached " +currentLvl+"!");
-            Debug.Log("\n"+ player.userName + " now has:");
+            //Debug.Log("---NEW LEVEL ACQUIRED---");
+            //Debug.Log(player.userName + " has reached " +currentLvl+"!");
+            //Debug.Log("\n"+ player.userName + " now has:");
 
             // Updating Player Attack
             player.SetAttackPower(currentLvl.attackBoost + player.defaultAttack);
 
-            Debug.Log("+" + currentLvl.attackBoost + " Attack ["+"Current Attack = "+player.GetAttackPower()+"]");
+            //Debug.Log("+" + currentLvl.attackBoost + " Attack ["+"Current Attack = "+player.GetAttackPower()+"]");
 
             // Updating Player Defense
             player.SetDefense(currentLvl.defenseBoost + player.defaultDefense);
 
-            Debug.Log("+" + currentLvl.defenseBoost + " Defense [" + "Current Defense = " + player.GetDefense() + "]");
+            //Debug.Log("+" + currentLvl.defenseBoost + " Defense [" + "Current Defense = " + player.GetDefense() + "]");
         }
 
     }

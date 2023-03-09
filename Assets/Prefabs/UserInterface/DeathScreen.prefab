@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1380573966143703257}
   - component: {fileID: 1380573966143703262}
   - component: {fileID: 1380573966143703248}
+  - component: {fileID: 5610162715121724250}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -117,6 +118,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11c8aa9c02d9df478877e110d5a89ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5610162715121724250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380573966143703263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07adf926dcae98549ba6963eec4eb3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstLevelName: MainScene_Level1
 --- !u!1 &1380573966448518571
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,11 +649,11 @@ PrefabInstance:
       objectReference: {fileID: 1380573966143703248}
     - target: {fileID: 3403936460261302653, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CreateNewGame
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302653, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayMenu, Assembly-CSharp
+      value: MenuControls, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3403936460261302653, guid: 3278644d8c322bd45a26d2fd04f60ba9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument

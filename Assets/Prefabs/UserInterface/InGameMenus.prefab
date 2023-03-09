@@ -270,7 +270,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1380573966143703256, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1380573966143703259, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
       propertyPath: m_Pivot.x
@@ -364,8 +364,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5964223656858627880, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6280206476435338935}
+    - target: {fileID: 5964223656858627880, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964223656858627880, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuControls, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
+--- !u!114 &6280206476435338935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1380573966143703248, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}
+  m_PrefabInstance: {fileID: 4904154123217993319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11c8aa9c02d9df478877e110d5a89ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6280206476435338940 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1380573966143703259, guid: 9d9141de90b15664aae9c5a6a379ca23, type: 3}

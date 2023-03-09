@@ -34,8 +34,6 @@ public class DealingDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        int damage;
         
         // if an enemy is within the player's range
         if (collision.CompareTag("Enemy") && !player.isDead)
@@ -50,19 +48,8 @@ public class DealingDamage : MonoBehaviour
             if (player.GetDefense() < enemy.attack && !justTookDamage && !enemy.isDead)
             {
                 //Debug.Log("Test");
-                damage = (enemy.attack - player.GetDefense());
-
-                // deal an attack
-                player.SetHealth(player.GetCurrentHealth() - damage);
-
-                // enemy attack animation
-                enemy.GetComponent<Animator>().SetTrigger("attacked");
-
+                player.TakeHit(enemy);
                 justTookDamage = true;
-
-                player.GetComponent<Animator>().SetTrigger("tookDamage");
-
-                Debug.Log(enemy.enemyName + " has dealt " + damage + " damage to " + player.userName);
             }
             else
             {

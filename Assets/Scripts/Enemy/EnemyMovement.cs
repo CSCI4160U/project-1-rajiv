@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -7,43 +6,18 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GameObject player; 
     [SerializeField] private float movementSpeed = 10f;
     [SerializeField] private float hostileRadius = 5f;
-
-    // direction the enemy is moving along x axis
-    private int xDirection = -1;
+    private Enemy enemy;
 
     private float distanceFromPlayer;
-    private bool reset = false;
-
-    IEnumerator ChangeDefaultWalkingDirection()
-    {
-
-        // wait 2 seconds
-        yield return new WaitForSeconds(2);
-
-        xDirection *= -1;
-
-        Start();
-    }
 
     private void Start()
     {
-        StartCoroutine(ChangeDefaultWalkingDirection());
-        reset = false;
-    }
-
-    void DefaultMovement()
-    {
-        if (reset)
-        {
-            Start();
-        }
-        transform.Translate(Vector3.right * (xDirection * movementSpeed * Time.deltaTime));
-        transform.localScale = new Vector3(xDirection, 1);
+        enemy = this.GetComponent<Enemy>();
     }
 
     void Update()
     {
-        if (!this.GetComponent<Enemy>().isDead)
+        if (!enemy.isDead)
         {
             Move();
         }        
@@ -51,17 +25,28 @@ public class EnemyMovement : MonoBehaviour
 
     public void FollowPlayer()
     {
+
+        // direction the enemy must move in ordeer to get to the player
+        Vector2 direction = player.transform.position - transform.position;
+
         // as long as player is alive
         if (!player.GetComponent<Player>().isDead)
         {
-            //Vector3 direction = player.transform.position - transform.position;
+            Debug.Log("x = "+direction.x);
+            if (direction.x > 0)
+            {
+                transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            }
+            else
+            {
+                transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            }
 
-            //this.GetComponent<Rigidbody2D>().MovePosition(transform.position + (movementSpeed * Time.deltaTime * direction));
             // move the enemy towards the player
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, movementSpeed * Time.deltaTime);
-            //transform.Translate(direction * movementSpeed * Time.deltaTime);
 
             // walk animation
+            enemy.DoWalkAnimation();
         }
 
     }
@@ -74,12 +59,23 @@ public class EnemyMovement : MonoBehaviour
             // get distance from player 
             distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
             
-            //// direction the enemy must move in ordeer to get to the player
-            //Vector2 direction = player.transform.position - transform.position;
+            
 
             if(distanceFromPlayer < hostileRadius)
             {
                 FollowPlayer();
+
+                
+            }
+            else
+            {
+                // reset walking animation
+                enemy.StopWalkAnimation();
+            }
+
+            if(distanceFromPlayer < this.GetComponent<BoxCollider2D>().edgeRadius)
+            {
+                enemy.DoAttackAnimation();
             }
             //else
             //{

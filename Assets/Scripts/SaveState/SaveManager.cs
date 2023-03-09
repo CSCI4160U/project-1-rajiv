@@ -28,7 +28,7 @@ public class SaveManager : MonoBehaviour
         this.sceneData = new SceneData();
         this.bossDefeatsData = new BossDefeatsData();
 
-        if (!CreateNewGame.pressedCreateGame)
+        if (!CreateNewGame.pressedCreateGame && !MenuControls.pressedRestartLevel)
         {
             LoadGame();
 
@@ -42,11 +42,20 @@ public class SaveManager : MonoBehaviour
                 DoorWay.enteredDoorWay = false;
             }
         }
-        else
+        if(CreateNewGame.pressedCreateGame || MenuControls.pressedRestartLevel)
         {
+            if (MenuControls.pressedRestartLevel)
+            {
+                player.Awake();
+
+                MenuControls.pressedRestartLevel = false;
+            }
+
             // create new game save
             SaveGame();
+
             LoadGame();
+
             // reset Menu Controls variables
             CreateNewGame.pressedCreateGame = false;
             CreateNewGame.newUserName = string.Empty;

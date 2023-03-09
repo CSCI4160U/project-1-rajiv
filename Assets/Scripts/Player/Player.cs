@@ -28,16 +28,22 @@ public class Player : MonoBehaviour
     public VectorValue startingPosition;
 
     // stores Enemy names
-    public List<string> bossesDefeatedNames = new List<string>();
+    public List<string> bossesDefeatedNames;
 
     // store Scene names where Enemy was defeated
-    public List<string> bossesDefeatedScenes = new List<string>();
+    public List<string> bossesDefeatedScenes;
 
-    private void Awake()
+    [SerializeField] private AudioSource takeDamageSoundEffect;
+
+    public void Awake()
     {
         currentAttack = defaultAttack;
         currentDefense = defaultDefense;
         health = maxHealth;
+        playerScore = 0;
+        isDead = false;
+        bossesDefeatedNames = new List<string>();
+        bossesDefeatedScenes = new List<string>();
 
         if (startingPosition != null)
         {
@@ -54,7 +60,14 @@ public class Player : MonoBehaviour
         if(damage > 0)
         {
             health -= damage;
+
+            // enemy attack animation
+            enemy.GetComponent<Animator>().SetTrigger("attacked");
+
             Debug.Log(enemy.enemyName + " has dealt " + damage + " damage to " + userName);
+
+            this.GetComponent<Animator>().SetTrigger("tookDamage");
+            takeDamageSoundEffect.Play();
         }
     }
 

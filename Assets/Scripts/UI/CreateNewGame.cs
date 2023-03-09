@@ -50,6 +50,7 @@ public class CreateNewGame : MonoBehaviour
             {
                 SceneManager.LoadScene(firstLevelName);
                 pressedCreateGame = true;
+                Debug.Log("Trying to create new game...");
             }
             else
             {

@@ -39,7 +39,6 @@ public class UIControls : MonoBehaviour
 
         if (this.GetComponent<Player>().isDead)
         {
-            Debug.Log("Showing Death Screen");
             deathScreenIsShown = true;
         }
         else

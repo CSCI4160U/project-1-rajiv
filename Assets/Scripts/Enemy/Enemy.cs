@@ -82,6 +82,22 @@ public class Enemy : MonoBehaviour
         
     }
 
+    public void DoWalkAnimation()
+    {
+        this.GetComponent<Animator>().SetTrigger("isWalking");
+    }
+
+    public void StopWalkAnimation()
+    {
+        this.GetComponent<Animator>().ResetTrigger("isWalking");
+    }
+
+    public void DoAttackAnimation()
+    {
+        // do death animation
+        this.GetComponent<Animator>().SetTrigger("attacked");
+    }
+
     public void Revive()
     {
         // now damage can be dealt again

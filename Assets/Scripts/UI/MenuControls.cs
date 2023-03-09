@@ -5,6 +5,7 @@ using TMPro;
 public class MenuControls : MonoBehaviour
 {
     public static bool pressedLoadGame = false;
+    public static bool pressedRestartLevel = false;
 
     public void GoToMainMenu()
     {
@@ -33,5 +34,12 @@ public class MenuControls : MonoBehaviour
         // show warning
 
         GoToMainMenu();
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        pressedRestartLevel = true;
+        Debug.Log("Trying to restart new game...");
     }
 }
