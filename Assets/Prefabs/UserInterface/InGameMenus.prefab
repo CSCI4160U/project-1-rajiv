@@ -40,6 +40,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4025568784990092918}
     m_Modifications:
+    - target: {fileID: 800300424101294010, guid: c02ad129c9f33ee49abca96e6e859c4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800300424101294010, guid: c02ad129c9f33ee49abca96e6e859c4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 800300424101294010, guid: c02ad129c9f33ee49abca96e6e859c4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 800300424101294010, guid: c02ad129c9f33ee49abca96e6e859c4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 800300424101294010, guid: c02ad129c9f33ee49abca96e6e859c4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 800300424101294010, guid: c02ad129c9f33ee49abca96e6e859c4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2384535720302445034, guid: c02ad129c9f33ee49abca96e6e859c4a, type: 3}
       propertyPath: m_text
       value: Quit

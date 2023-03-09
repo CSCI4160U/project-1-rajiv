@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public int value;
 
 
-    public void Start()
+    public void Awake()
     {
         health = maxHealth;
     }
@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour
         this.enabled = true;
 
         // reset health
-        Start();
+        Awake();
     }
 
     private void Update()

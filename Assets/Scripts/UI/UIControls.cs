@@ -4,23 +4,36 @@ public class UIControls : MonoBehaviour
 {
     private bool pauseMenuIsShown = false;
     private bool deathScreenIsShown = false;
+    private GameObject pauseMenu;
+
+    private void Awake()
+    {
+        pauseMenu = GameObject.Find("PauseMenu");
+    }
 
     private void Update()
     {
-        TogglePauseMenu(false);
+        TogglePauseMenu();
         ShowDeathScreen();
     }
 
-    public void TogglePauseMenu(bool continueGameButtonPressed)
+    public void ClosePauseMenu()
     {
-        GameObject pauseMenu = GameObject.Find("PauseMenu");
+        if (pauseMenu != null)
+        {
+            pauseMenuIsShown = false;
+            pauseMenu.GetComponent<Canvas>().enabled = pauseMenuIsShown;
+        }
+    }
 
+    public void TogglePauseMenu()
+    {
         if (pauseMenu != null)
         {
             pauseMenu.GetComponent<Canvas>().enabled = pauseMenuIsShown;
         }
 
-        if ((Input.GetKeyDown(KeyCode.Escape) || continueGameButtonPressed))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Toggled Pause Menu");
             pauseMenuIsShown = !pauseMenuIsShown; 

@@ -28,36 +28,6 @@ public class JSONLoaderSaver : MonoBehaviour
     //    }
     //    return null;
     //}
-
-    public static void SaveInventoryDataAsJSON(string savePath, string fname,
-    InventoryData inventoryData)
-    {
-        Debug.Log("savePath: " + savePath);
-        if (!Directory.Exists(savePath))
-        {
-            Directory.CreateDirectory(savePath);
-            Debug.Log("Creating save data directory: " + savePath);
-        }
-        string json = JsonUtility.ToJson(inventoryData);
-        File.WriteAllText(savePath + fname, json);
-    }
-
-    public static InventoryData LoadInventoryDataFromJSON(string savePath, string
-    fname)
-    {
-        if (File.Exists(savePath + fname))
-        {
-            string json = File.ReadAllText(savePath + fname);
-            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(json);
-            return inventoryData;
-        }
-        else
-        {
-            Debug.LogError("Cannot find file: " + savePath);
-        }
-        return null;
-    }
-
     public static void SaveBossDefeatsDataAsJSON(string savePath, string fname,
     BossDefeatsData bossDefeatsData)
     {
@@ -137,6 +107,35 @@ public class JSONLoaderSaver : MonoBehaviour
             string json = File.ReadAllText(savePath + fname);
             SceneData sceneData = JsonUtility.FromJson<SceneData>(json);
             return sceneData;
+        }
+        else
+        {
+            Debug.LogError("Cannot find file: " + savePath);
+        }
+        return null;
+    }
+
+    public static void SaveSettingsDataAsJSON(string savePath, string fname,
+    SettingsData settingsData)
+    {
+        Debug.Log("savePath: " + savePath);
+        if (!Directory.Exists(savePath))
+        {
+            Directory.CreateDirectory(savePath);
+            Debug.Log("Creating save data directory: " + savePath);
+        }
+        string json = JsonUtility.ToJson(settingsData);
+        File.WriteAllText(savePath + fname, json);
+    }
+
+    public static SettingsData LoadSettingsDataFromJSON(string savePath, string
+    fname)
+    {
+        if (File.Exists(savePath + fname))
+        {
+            string json = File.ReadAllText(savePath + fname);
+            SettingsData settingsData = JsonUtility.FromJson<SettingsData>(json);
+            return settingsData;
         }
         else
         {

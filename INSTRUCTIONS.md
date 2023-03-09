@@ -26,9 +26,29 @@
 
 - Make use of the "Assets" folder in this repository (This includes everything you need to build the game)
 
-## Level Creation (2D Tilemaps)
+## Making a New Scene
 
 Open the Unity Editor and follow these instructions:
+
+1. In the Project window, open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `Scenes` folder.
+
+![locate scenes](./INSTRUCTION_images/MainMenu/locatescenes.PNG)
+
+3. Within the `Scenes` folder open the `YourScenes` folder. Right-click on an empty space in the folder and create a new Scene. Name it as `MainScene_Level1`.
+
+![add scene](./INSTRUCTION_images/MainMenu/addscene.PNG)
+
+4. In the Project window, open the `Assets` folder if it is not already opended.
+5. Within the `Assets` folder, open the `Scripts` folder.
+6. Within the `Scripts` folder, open the `Globals` folder.
+7. Within the `Globals` folder, open the `Globals` script in a Text Editor.
+
+![find Globals](./INSTRUCTION_images/LevelCreation/findglobal.PNG)
+
+8. Within the `Globals.cs` script, change the the value of `mainSceneName_Level` in the quotations to "MainScene_Level1". **Note:** This name tells the game where to go when the player wants to restart the game (Very important!).
+
+## Level Creation (2D Tilemaps)
 
 1. In the Project window, open the `Assets` folder if it is not already opended.
 2. Within the `Assets` folder, open the `Prefabs` folder.

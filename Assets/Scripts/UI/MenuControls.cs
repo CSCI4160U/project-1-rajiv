@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class MenuControls : MonoBehaviour
 {
@@ -12,8 +11,6 @@ public class MenuControls : MonoBehaviour
         Debug.Log("Opened MainMenu");
         SceneManager.LoadScene("MainMenu");
     }
-
-    
 
     public void LoadGame()
     {

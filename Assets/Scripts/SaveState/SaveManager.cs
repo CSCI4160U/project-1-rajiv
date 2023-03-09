@@ -46,7 +46,7 @@ public class SaveManager : MonoBehaviour
         {
             if (MenuControls.pressedRestartLevel)
             {
-                player.Awake();
+                this.player.Awake();
 
                 MenuControls.pressedRestartLevel = false;
             }
@@ -136,11 +136,8 @@ public class SaveManager : MonoBehaviour
     {
         string activeSceneName = SceneManager.GetActiveScene().name;
         this.sceneData.sceneFullName = activeSceneName;
-        this.sceneData.sceneType = activeSceneName.Split("_")[0];
-        this.sceneData.levelName = activeSceneName.Split("_")[1];
 
-        Debug.Log("Saved Scene name: " + sceneData.sceneFullName);
-        Debug.Log("Current Level: " + sceneData.levelName);
+        Debug.Log("Saved Scene named: " + sceneData.sceneFullName);
 
         JSONLoaderSaver.SaveSceneDataAsJSON(savePath, "sceneData.json", this.sceneData);
         //BinaryLoaderSaver.SavePlayerAsBinary(savePath, "player.bin",this.playerData);

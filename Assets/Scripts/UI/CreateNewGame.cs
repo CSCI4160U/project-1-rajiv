@@ -4,7 +4,6 @@ using TMPro;
 
 public class CreateNewGame : MonoBehaviour
 {
-    public string firstLevelName = string.Empty;
 
     public static bool pressedCreateGame = false;
     public static string newUserName;
@@ -46,15 +45,15 @@ public class CreateNewGame : MonoBehaviour
         // go to level 1
         if (newUserName != string.Empty)
         {
-            if (firstLevelName != string.Empty)
+            if (Globals.mainSceneName_Level1 != string.Empty)
             {
-                SceneManager.LoadScene(firstLevelName);
+                SceneManager.LoadScene(Globals.mainSceneName_Level1);
                 pressedCreateGame = true;
                 Debug.Log("Trying to create new game...");
             }
             else
             {
-                Debug.Log("Give a value to the 'First Level Name' in the MenuControls script component!");
+                Debug.Log("Give a value to the 'First Level Name' in the Globals script!\n(Assets/Scripts/Globals/Globals.cs)");
             }
         }
         else

@@ -40,7 +40,6 @@ public class Player : MonoBehaviour
         currentAttack = defaultAttack;
         currentDefense = defaultDefense;
         health = maxHealth;
-        playerScore = 0;
         isDead = false;
         bossesDefeatedNames = new List<string>();
         bossesDefeatedScenes = new List<string>();
