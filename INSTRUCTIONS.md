@@ -12,6 +12,11 @@
 
 4. bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike) (https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/)
 
+5. "[LPC] Desert Ruins" by bluecarrot16. Commissioned by Pierre Vigier (pvigier). Licenses: OGA-BY 3.0+, CC-BY 3.0+, GPL 2.0+. http://opengameart.org/content/lpc-desert-ruins
+
+6. "Cave" Art by MrBeast. Commissioned by OpenGameArt.org (http://opengameart.org)
+
+
 ## Getting Started
 
 - Make sure to install the Unity Editor
