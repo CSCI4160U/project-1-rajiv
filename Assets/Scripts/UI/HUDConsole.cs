@@ -6,6 +6,7 @@ public class HUDConsole : MonoBehaviour
 {
     private GameObject console = null;
     [SerializeField] private TextMeshProUGUI textComponent;
+    [SerializeField] private float readTime = 5f;
     public static HUDConsole _instance;
 
     private void Awake()
@@ -37,7 +38,7 @@ public class HUDConsole : MonoBehaviour
         Debug.Log("Showing message on console...");
         textComponent.text = message;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(readTime);
 
         console.SetActive(false);
         textComponent.text = string.Empty;
