@@ -32,7 +32,6 @@ public class EnemyMovement : MonoBehaviour
         // as long as player is alive
         if (!player.GetComponent<Player>().isDead)
         {
-            Debug.Log("x = "+direction.x);
             if (direction.x > 0)
             {
                 transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);

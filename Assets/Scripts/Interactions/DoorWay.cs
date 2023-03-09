@@ -65,6 +65,7 @@ public class DoorWay : MonoBehaviour
                 else
                 {
                     Debug.Log("You need a score of " + scoreRequired + " to progress. CURRENT SCORE: " + player.playerScore + "/" + scoreRequired + ".");
+                    HUDConsole._instance.Log("You need a score of " + scoreRequired + " to progress.\n CURRENT SCORE: " + player.playerScore + "/" + scoreRequired + ".");
                 }
             }
             else
