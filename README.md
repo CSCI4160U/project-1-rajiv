@@ -6,7 +6,7 @@ You can work on this assignment alone or in a group of no more than 2 students.
 | :------------------------- |:------------------:|
 | Rajiv Williams | [rajiv-williams](https://github.com/rajiv-williams) |
 
-Trailer video URL: _________________________
+Trailer video URL: https://youtu.be/6VxF14Losso
 
 _**Note:** The commit logs will be examined to be sure that both participants participated equally on this project._
 
