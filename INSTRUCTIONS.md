@@ -48,6 +48,8 @@ Open the Unity Editor and follow these instructions:
 
 8. Within the `Globals.cs` script, change the the value of `mainSceneName_Level` in the quotations to "MainScene_Level1". **Note:** This name tells the game where to go when the player wants to restart the game (Very important!).
 
+![edit Globals](./INSTRUCTION_images/LevelCreation/editglobal.PNG)
+
 ## Level Creation (2D Tilemaps)
 
 1. In the Project window, open the `Assets` folder if it is not already opended.
