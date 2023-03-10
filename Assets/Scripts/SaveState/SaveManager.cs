@@ -27,6 +27,11 @@ public class SaveManager : MonoBehaviour
         this.bossDefeatsData = new BossDefeatsData();
         this.settingsData = new SettingsData();
 
+        if (Application.isEditor) {
+            // if in Edit mode, save game so everything doesn't go all over the place
+            SaveGame();
+        }
+
         // if coming from load game button or entering a door way
         if (!CreateNewGame.pressedCreateGame && !MenuControls.pressedRestartLevel)
         {

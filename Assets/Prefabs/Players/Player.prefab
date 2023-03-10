@@ -398,7 +398,7 @@ MonoBehaviour:
   isFacingLeft: 0
   isFacingRight: 0
   isDead: 0
-  startingPosition: {fileID: 0}
+  startingPosition: {fileID: 11400000, guid: d9c3b6883916f9d43a749d1c9b94cab3, type: 2}
   bossesDefeatedNames: []
   bossesDefeatedScenes: []
   takeDamageSoundEffect: {fileID: 7690458180664000168}

@@ -14,6 +14,11 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         enemy = this.GetComponent<Enemy>();
+
+        if(player == null)
+        {
+            Debug.Log("Please set up 'Player' value in EnemyMovement script! Game Object: " + this.gameObject.name);
+        }
     }
 
     void Update()
@@ -47,12 +52,15 @@ public class EnemyMovement : MonoBehaviour
             }
 
             // move the enemy towards the player
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, movementSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, movementSpeed * Time.deltaTime);
 
             // walk animation
             enemy.DoWalkAnimation();
         }
-
+        else
+        {
+            enemy.StopWalkAnimation();
+        }
     }
 
     /*
@@ -69,7 +77,7 @@ public class EnemyMovement : MonoBehaviour
 
             if(distanceFromPlayer < hostileRadius)
             {
-                FollowPlayer(); 
+                FollowPlayer();
             }
             else
             {

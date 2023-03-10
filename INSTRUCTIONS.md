@@ -15,7 +15,10 @@
 5. "[LPC] Desert Ruins" by bluecarrot16. Commissioned by Pierre Vigier (pvigier). Licenses: OGA-BY 3.0+, CC-BY 3.0+, GPL 2.0+. http://opengameart.org/content/lpc-desert-ruins
 
 6. "Cave" Art by MrBeast. Commissioned by OpenGameArt.org (http://opengameart.org).
-7. Music by Rajiv Williams (PRODUCER RAW) (https://www.youtube.com/channel/UCAUBm2DSjImDdeE9mQ47LbA)
+
+7. "Wolf Animation" Graphic Artist: Stephen "Redshrike" Challener, Contributor: William.Thompsonj. (https://opengameart.org/content/lpc-wolf-animation)
+
+8. Music by Rajiv Williams (PRODUCER RAW) (https://www.youtube.com/channel/UCAUBm2DSjImDdeE9mQ47LbA)
 
 
 ## Getting Started
@@ -168,11 +171,11 @@ The following instructions apply to the `Player` game object only:
 - "Max Health" = 100
 - "Player Score" = 0
 
-Also, to set the "Starting Position" of the Player, navigate to the `Scriptable Objects` folder in the `Assets` folder. You will find the `PlayerPosition` asset. 
+Also, to set the "Starting Position" of the Player, navigate to the `Scriptable Objects` folder in the `Assets` folder. You will find the `PlayerPosition` asset. Set the value of the "X" and "Y" of the position you want the player to start at in the first Scene.
 
 ![Player Position](./INSTRUCTION_images/SettingUpSprites/PlayerSprite/playerposition.PNG)
 
-Drag this into the slot of the "Starting Position" for the `Player` script. This will allow the player to maintain the same position when entering and exiting `DoorWay` game objects. (Note: This should be done for every scene the `Player` is in)
+Drag this into the slot of the "Starting Position" for the `Player` script. This will allow the player to maintain the same position when entering and exiting `DoorWay` game objects. (**Note:** This should be done for every scene the `Player` is in)
 
 ![Starting Position](./INSTRUCTION_images/SettingUpSprites/PlayerSprite/start.PNG)
 
