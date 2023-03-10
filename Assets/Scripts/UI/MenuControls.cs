@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -47,5 +48,11 @@ public class MenuControls : MonoBehaviour
         SceneManager.LoadScene(Globals.mainSceneName_Level1);
         pressedRestartLevel = true;
         Debug.Log("Trying to restart new game...");
+    }
+
+    public void ShutDownGame()
+    {
+        EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 }

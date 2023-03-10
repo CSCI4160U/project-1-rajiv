@@ -658,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1792581461876318313, guid: bc3760471d83b5846b45744d968f1c3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1792581461876318313, guid: bc3760471d83b5846b45744d968f1c3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -682,7 +682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1792581461876318313, guid: bc3760471d83b5846b45744d968f1c3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: TogglePauseMenu
+      value: ClosePauseMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1792581461876318313, guid: bc3760471d83b5846b45744d968f1c3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

@@ -441,4 +441,15 @@ In these instructions, you will need to store the positions of an `Entry Way` an
 
 Congratulations! You just made your own `DoorWay`! In game, the character can enter this `DoorWay` by pressing the `Action` button (Spacebar).
 
+**Note:** See the `Building Game` section for the `DoorWay` to work (You have to set up which Scenes can be built).
+
+## Building Game
+
+1. Under the "File" menu at the top of the Unity Editor, go to "Build Settings".
+
+![find build settings](./INSTRUCTION_images/Building/findsettings.PNG)
+
+2. In order for the program to build the Scenes that you made, you have to add them to "Scenes in Build" section. To add a Scene you want to build, make sure it is currently open in the Unity Editor. Then, press the "Add Open Scenes" button to add them. 
+
+![build settings](./INSTRUCTION_images/Building/buildsettings.PNG)
 

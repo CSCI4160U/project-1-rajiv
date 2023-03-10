@@ -70,6 +70,8 @@ public class SaveManager : MonoBehaviour
         SavePlayer();
         SaveBossDefeats();
         SaveScene();
+
+        HUDConsole._instance.Log("Saved Game successfully.",5f);
     }
 
     /*
