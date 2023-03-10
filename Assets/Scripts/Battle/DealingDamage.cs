@@ -59,7 +59,7 @@ public class DealingDamage : MonoBehaviour
             if (justTookDamage)
             {
                 // do damage cool down
-                Start();
+                StartCoroutine(ResetDamageCoolDown());
             }
 
             if (player.GetCurrentHealth() <= 0)

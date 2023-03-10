@@ -71,7 +71,7 @@ public class SaveManager : MonoBehaviour
         SaveBossDefeats();
         SaveScene();
 
-        HUDConsole._instance.Log("Saved Game successfully.",5f);
+        HUDConsole._instance.Log("Saved Game successfully.",2f);
     }
 
     /*
@@ -94,6 +94,7 @@ public class SaveManager : MonoBehaviour
         this.playerData.playerScore = this.player.playerScore;
         this.playerData.isDead = this.player.isDead;
 
+        // if player has not entered a door way
         if (!DoorWay.enteredDoorWay)
         {
             this.playerData.playerPosition = this.player.transform.position;

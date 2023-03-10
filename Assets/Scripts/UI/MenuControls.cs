@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -52,7 +51,6 @@ public class MenuControls : MonoBehaviour
 
     public void ShutDownGame()
     {
-        EditorApplication.isPlaying = false;
         Application.Quit();
     }
 }

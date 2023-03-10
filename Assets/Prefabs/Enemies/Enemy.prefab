@@ -112,7 +112,7 @@ MonoBehaviour:
   isDead: 0
   reviveTime: 20
   numberOfLives: 1
-  value: 0
+  value: 100
 --- !u!114 &631103164711014354
 MonoBehaviour:
   m_ObjectHideFlags: 0
