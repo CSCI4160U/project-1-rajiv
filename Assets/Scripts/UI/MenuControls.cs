@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuControls : MonoBehaviour
 {
-    [SerializeField] private Player player = null;
     public static bool pressedLoadGame = false;
     public static bool pressedRestartLevel = false;
 
@@ -33,6 +32,14 @@ public class MenuControls : MonoBehaviour
         }
 
         
+    }
+
+    public void ShowCreateNewGameWarning()
+    {
+        if(!Globals.NoGameSaveDataFound() && !Globals.NoSaveFilesFound())
+        {
+            HUDConsole._instance.Log("Warning: You will overwrite current save files if you continue!", 7f);
+        }
     }
 
     public void RestartLevel()
