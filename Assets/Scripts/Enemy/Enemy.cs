@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -53,6 +53,10 @@ public class Enemy : MonoBehaviour
                     player.bossesDefeatedNames.Add(gameObject.name);
                     player.bossesDefeatedScenes.Add(SceneManager.GetActiveScene().name);
                 }
+                else
+                {
+                    StartCoroutine(ReviveCoolDown());
+                }
 
                 // increase player score
                 player.playerScore += value;
@@ -60,12 +64,21 @@ public class Enemy : MonoBehaviour
         }  
     }
 
+    IEnumerator ReviveCoolDown()
+    {
+
+        // wait until enemy revive time expires, then revive
+        yield return new WaitForSeconds(reviveTime);
+
+        Revive();
+    }
+
     /*
      * Function disables the game object of an enemy is it
      * ran out of lives. It also returns whether or not the
      * enemy has ran out of lives
      */
-    private bool RanOutOfLives()
+    public bool RanOutOfLives()
     {
         if(numberOfLives == 0)
         {

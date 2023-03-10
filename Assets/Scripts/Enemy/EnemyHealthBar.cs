@@ -12,7 +12,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void Update()
     {
-        if (!enemy.gameObject.activeInHierarchy)
+        if (enemy.isDead && enemy.RanOutOfLives())
         {
             EnemyHealthBarManager._instance.HideEnemyHeathBar();
         }
