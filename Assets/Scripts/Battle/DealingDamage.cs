@@ -3,23 +3,27 @@ using System.Collections;
 
 public class DealingDamage : MonoBehaviour
 {
-    public Player player;
-    public float attackRange = 1.0f;
-    public Transform upAttackPoint;
-    public Transform downAttackPoint;
-    public Transform leftAttackPoint;
-    public Transform rightAttackPoint;
-    public LayerMask enemyLayers;
+    [SerializeField] private Player player;
+    [SerializeField] private float attackRange = 1.0f;
+    [SerializeField] private Transform upAttackPoint;
+    [SerializeField] private Transform downAttackPoint;
+    [SerializeField] private Transform leftAttackPoint;
+    [SerializeField] private Transform rightAttackPoint;
+    [SerializeField] private LayerMask enemyLayers;
 
-    // damage cool down
+    // boolean that enables damage cool down if true
     private bool justTookDamage = false;
-    
 
     private void Start()
     {
+        // begin damage cool down
         StartCoroutine(ResetDamageCoolDown());
     }
 
+    /*
+     * Function makes it so player is unable to be attacked 
+     * for a certain amount of time.
+     */
     IEnumerator ResetDamageCoolDown()
     {
 
@@ -31,18 +35,14 @@ public class DealingDamage : MonoBehaviour
 
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        // if an enemy is within the player's range
+        // if an enemy collider with player who is alive
         if (collision.CompareTag("Enemy") && !player.isDead)
         {
 
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-
-            // get distance between player and enemy 
-            float distanceBetween = Vector2.Distance(this.transform.position, enemy.transform.position);
 
             // if attack can do damage, if enemy is within range, if player damage cool down done, and if enemy is alive
             if (player.GetDefense() < enemy.attack && !justTookDamage && !enemy.isDead)
@@ -103,17 +103,15 @@ public class DealingDamage : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Player hit " + enemy.name);
-                
-            // take a hit from Player
             if(enemy.GetComponent<Enemy>() != null)
             {
+                // enemy takes damage from player
                 enemy.GetComponent<Enemy>().TakeHit(player);
             }
-
-            // reset cool down
-            justTookDamage = false;
         }
+
+        // reset cool down since player has attacked
+        justTookDamage = false;
     }
 
     private void Update()
@@ -124,6 +122,7 @@ public class DealingDamage : MonoBehaviour
         }
     }
 
+    // show attacking points in all directions
     private void OnDrawGizmosSelected()
     {
         if(upAttackPoint == null || downAttackPoint == null || 

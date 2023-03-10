@@ -3,15 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class DoorWay : MonoBehaviour
 {
-    public string destination;
-    public Player player = null;
-    public VectorValue playerPositionInDestination;
+    [SerializeField] private string destination;
+    [SerializeField] private Player player = null;
 
-    // stores initial position of player when exiting doorway
-    public VectorValue playerPositionInCurrentScene;
+    // stores position of player when exiting doorway
+    [SerializeField] private VectorValue playerPositionInDestination;
 
-    public int scoreRequired = 0;
-    public float requiredDistance = 5f;
+    // stores initial position of player when entering doorway
+    [SerializeField] private VectorValue playerPositionInCurrentScene;
+
+    [SerializeField] private int scoreRequired = 0;
+    [SerializeField] private float requiredDistance = 5f;
 
     public static bool enteredDoorWay = false;
 
@@ -25,6 +27,11 @@ public class DoorWay : MonoBehaviour
         CheckIfPlayerHasReachedGoal();
     }
 
+    /*
+     * Function loads destination Scene of the DoorWay
+     * and Saves the current state of the game after
+     * entering the DoorWay
+     */
     private void GoThroughDoorWay()
     {
         // You met the requirement
@@ -38,6 +45,9 @@ public class DoorWay : MonoBehaviour
         player.GetComponent<SaveManager>().SaveGame();
     }
 
+    /*
+     * Function checks the requirements for a player to enter a DoorWay
+     */
     private void CheckIfPlayerHasReachedGoal()
     {
         if (player != null)
@@ -64,10 +74,12 @@ public class DoorWay : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("You need a score of " + scoreRequired + " to progress. CURRENT SCORE: " + player.playerScore + "/" + scoreRequired + ".");
+                    Debug.Log("You need a score of " + scoreRequired + " to progress. CURRENT SCORE: " + 
+                        player.playerScore + "/" + scoreRequired + ".");
 
-                    // show message in console
-                    HUDConsole._instance.Log("You need a score of " + scoreRequired + " to progress.\n CURRENT SCORE: " + player.playerScore + "/" + scoreRequired + ".");
+                    // show message in console for 10 seconds
+                    HUDConsole._instance.Log("You need a score of " + scoreRequired + " to progress.\n CURRENT SCORE: " + 
+                        player.playerScore + "/" + scoreRequired + ".", 10f);
                 }
             }
             else

@@ -6,19 +6,11 @@ public class HUDConsole : MonoBehaviour
 {
     private GameObject console = null;
     [SerializeField] private TextMeshProUGUI textComponent;
-    [SerializeField] private float readTime = 5f;
     public static HUDConsole _instance;
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            //Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
+        _instance = this;
 
         console = this.gameObject;
     }
@@ -27,13 +19,13 @@ public class HUDConsole : MonoBehaviour
         console.SetActive(false);
     }
 
-    public void Log(string message)
+    public void Log(string message, float readTime)
     {
         console.SetActive(true);
-        _instance.StartCoroutine(ShowMessage(message));
+        _instance.StartCoroutine(ShowMessage(message, readTime));
     }
 
-    IEnumerator ShowMessage(string message)
+    IEnumerator ShowMessage(string message, float readTime)
     {
         Debug.Log("Showing message on console...");
         textComponent.text = message;

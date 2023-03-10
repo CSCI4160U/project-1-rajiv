@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class SettingsControls : MonoBehaviour
 {
-    private AudioSource backgroundMusic = null;
-    [SerializeField] private Slider musicVolumeSlider = null;
+    public static AudioSource backgroundMusic = null;
+    public Slider musicVolumeSlider = null;
     private string savePath;
-
+    public static SettingsControls _instance;
     public SettingsData settingsData = null;
 
     private void Awake()
@@ -17,16 +17,23 @@ public class SettingsControls : MonoBehaviour
             backgroundMusic = bm.GetComponent<AudioSource>();
         }
 
-        musicVolumeSlider.value = musicVolumeSlider.maxValue;
-    }
+        _instance = this;
 
-    private void Start()
-    {
+        musicVolumeSlider.value = musicVolumeSlider.maxValue;
+
         savePath = Application.persistentDataPath + "/saveData/";
         Debug.Log("Saving Settings to path: " + savePath);
+        this.settingsData = new SettingsData();
 
-        // load previously saved settings
+        if (Globals.NoSaveFilesFound())
+        {
+            // creating settings save file
+            SaveSettings();
+        }
+
         LoadSettings();
+
+        this.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -43,34 +50,50 @@ public class SettingsControls : MonoBehaviour
         }
     }
 
-    private bool AllSettingsExist()
-    {
-        return backgroundMusic != null;
-    }
     
     private void UpdateVolume()
     {
         backgroundMusic.volume = musicVolumeSlider.value/100;
     }
 
-    [ContextMenu("Save Music Volume")]
+    /*
+     * Returns true if all existing settings are not null
+     */
+    private static bool AllSettingsExist()
+    {
+        return backgroundMusic != null;
+    }
+
+
+    [ContextMenu("Save Settings")]
     public void SaveSettings()
     {
         if (AllSettingsExist())
         {
-            this.settingsData.musicVolume = this.backgroundMusic.volume;
+            this.settingsData.musicVolume = backgroundMusic.volume;
             JSONLoaderSaver.SaveSettingsDataAsJSON(savePath, "settingsData.json", this.settingsData);
         }
     }
 
-    [ContextMenu("Load Music Volume")]
+    [ContextMenu("Load Settings")]
     public void LoadSettings()
     {
+
         if (AllSettingsExist())
         {
             this.settingsData = JSONLoaderSaver.LoadSettingsDataFromJSON(savePath, "settingsData.json");
 
-            this.backgroundMusic.volume = settingsData.musicVolume;
+            if(settingsData != null)
+            {
+                // updating background music
+                backgroundMusic.volume = settingsData.musicVolume;
+                musicVolumeSlider.value = backgroundMusic.volume * 100;
+            }
+            
+
+            // ...
+
+            // TODO: other settings
         }
     }
 }

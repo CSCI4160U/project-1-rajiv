@@ -1,10 +1,14 @@
 Music Produced by Rajiv Williams aka PRODUCER RAW
 
 -adventure.mp3
-	Sample: Looperman.com
+	Sample from Looperman.com
+	-"russian-folk-lullaby-real-piano"
 -regret.mp3
-	Sample: Looperman.com
+	Sample from Looperman.com
+	-"beautiful-piano-keys-let-me-go-by-ditten"
 -silence.mp3
-	Sample: Looperman.com
+	Samples from Looperman.com
+	-"the-vikings-are-told-of-ragnars-death-i-remake"
+	-"purple-drums"
 -videogame2.mp3 (Original Piece)
-thinking.mp3 (Original Piece)
+-thinking.mp3 (Original Piece)

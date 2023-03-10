@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemySpawning : MonoBehaviour
 {
     private Enemy enemy = null;
@@ -26,7 +27,7 @@ public class EnemySpawning : MonoBehaviour
     IEnumerator ReviveCoolDown()
     {
 
-        // cool down for 30 seconds
+        // wait until enemy revive time expires, then revive
         yield return new WaitForSeconds(enemy.reviveTime);
 
         enemy.Revive();

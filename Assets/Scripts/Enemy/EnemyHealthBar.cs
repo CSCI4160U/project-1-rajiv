@@ -1,7 +1,6 @@
 using UnityEngine;
 
-// RESOURCE: https://www.youtube.com/watch?v=y2N_J391ptg
-
+[RequireComponent(typeof(Enemy))]
 public class EnemyHealthBar : MonoBehaviour
 {
     private Enemy enemy;

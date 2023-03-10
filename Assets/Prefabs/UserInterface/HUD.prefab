@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 6766995939904227990}
-  readTime: 5
+  readTime: 10
 --- !u!1 &4171124465965308214
 GameObject:
   m_ObjectHideFlags: 0

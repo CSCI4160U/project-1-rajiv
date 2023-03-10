@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
 
@@ -23,6 +24,10 @@ public class EnemyMovement : MonoBehaviour
         }        
     }
 
+    /*
+     * Function enables enemy to follow player around based on its
+     * hostile radius
+     */
     public void FollowPlayer()
     {
 
@@ -50,21 +55,21 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    // https://www.youtube.com/watch?v=2SXa10ILJms
+    /*
+     * Function does all functionality relating to enemy movement
+     * including following the player around, and doing attack and
+     * walking animations.
+     */
     public void Move()
     {
         if (player != null)
         {
             // get distance from player 
             distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
-            
-            
 
             if(distanceFromPlayer < hostileRadius)
             {
-                FollowPlayer();
-
-                
+                FollowPlayer(); 
             }
             else
             {

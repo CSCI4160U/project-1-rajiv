@@ -2,14 +2,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// RESOURCE: https://www.youtube.com/watch?v=y2N_J391ptg
-
+// RESOURCE: "How to Make A Simple Tooltip in Unity" https://www.youtube.com/watch?v=y2N_J391ptg
 public class EnemyHealthBarManager : MonoBehaviour
 {
     public static EnemyHealthBarManager _instance;
 
-    public TextMeshProUGUI textComponent;
-    public Slider healthSlider;
+    [SerializeField] private TextMeshProUGUI textComponent;
+    [SerializeField] private Slider healthSlider;
 
     private void Awake()
     {
@@ -34,6 +33,10 @@ public class EnemyHealthBarManager : MonoBehaviour
         transform.position = Input.mousePosition;
     }
 
+    /*
+     * Function updates the value of the Health Bar slider
+     * and adds the enemy name above it with its textComponent
+     */
     public void SetAndShowEnemyHealthBar(Enemy enemy)
     {
         if (enemy.gameObject.activeInHierarchy)

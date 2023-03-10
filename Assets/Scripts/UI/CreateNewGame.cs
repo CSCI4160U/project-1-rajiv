@@ -36,8 +36,6 @@ public class CreateNewGame : MonoBehaviour
     }
     public void GoToLevel1()
     {
-        Debug.Log("Created a new game");
-
         // if save file already exists
         // are you sure you would like to overwrite your saved game?
 
@@ -45,6 +43,7 @@ public class CreateNewGame : MonoBehaviour
         // go to level 1
         if (newUserName != string.Empty)
         {
+            Debug.Log("Created a new game");
             if (Globals.mainSceneName_Level1 != string.Empty)
             {
                 SceneManager.LoadScene(Globals.mainSceneName_Level1);

@@ -465,6 +465,8 @@ MonoBehaviour:
   bossDefeatsData:
     bossesDefeatedNames: []
     bossesDefeatedScenes: []
+  settingsData:
+    musicVolume: 0
   player: {fileID: 6551572282522626706}
 --- !u!114 &2077685240838580455
 MonoBehaviour:
@@ -600,11 +602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049329523635030314, guid: f8cf20abf06de474bb3788ee9aeb83de, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3345533197609786001, guid: f8cf20abf06de474bb3788ee9aeb83de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5467350089624733192, guid: f8cf20abf06de474bb3788ee9aeb83de, type: 3}
       propertyPath: m_Pivot.x
@@ -692,7 +694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7018034992187729725, guid: f8cf20abf06de474bb3788ee9aeb83de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8472286755635497154, guid: f8cf20abf06de474bb3788ee9aeb83de, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -985,6 +987,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4176831151580603036, guid: bc3760471d83b5846b45744d968f1c3e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6551572282522626706}
     - target: {fileID: 6280206476435338943, guid: bc3760471d83b5846b45744d968f1c3e, type: 3}
       propertyPath: m_Enabled
       value: 1

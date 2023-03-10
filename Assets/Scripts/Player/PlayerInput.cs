@@ -39,21 +39,11 @@ public class PlayerInput : MonoBehaviour
     IEnumerator AttackAnimationCoolDown()
     {
 
-        
-
         // cool down for 1 second
         yield return new WaitForSeconds(0.6f);
 
         // other animations can play now
         animator.SetTrigger("isNotAttacking");
-        // if attack animation no longer in process
-        //if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
-        //{
-        //    // enable walking and other animations
-        //    //animator.SetTrigger("isNotAttacking");
-        //    animator.SetTrigger("isNotAttacking");
-        //}
-
 
     }
 

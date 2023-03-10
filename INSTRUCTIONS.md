@@ -266,6 +266,40 @@ If you want to see the rest of the scene more easily, make the `InGameMenus` gam
 
 You can customize the `PauseMenu`, `DeathScreen` and the `HUD` in the same way by changing colors of text, background and re-sizing things in any way you want. Just make sure it fits on the screen!
 
+## Loading Screen
+
+1. Make a new Scene in the `YourScenes` folder, and name it `LoadingScreen`.
+
+The path to find the `YourScenes` folder:
+![MyHouse Scene](./INSTRUCTION_images/DoorWays/either1.PNG)
+
+2. In the Project window, open the `Assets` folder if it is not already opended.
+3. Within the `Assets` folder, open the `Prefabs` folder.
+4. Within the `Prefabs` folder, open the `LoadingScreen` folder.
+
+![finding LoadingScreen](./INSTRUCTION_images/LoadingScreen/finding.PNG)
+
+5. Within the `LoadingScreen` folder, locate the prefab named `LoadingScreen` and drag it into the Scene Hierarchy. This game object has a loading animation and barriers.
+
+6. Locate the `Player` prefab that you are using, and drag that into the Scene. Re-size it however you want and set the "Run Speed" value of the `Player Input (Script)` component to a speed that matches the size. Have fun with it if you want! Recommended values are as follows:
+    - In the `Transform` component, set the Scale to 10 for "X" and "Y".
+    ![Setting x and y](./INSTRUCTION_images/LoadingScreen/setxy.PNG)
+    - In the `Player Input (Script)` component, set "Run Speed" to 30.
+    ![Setting speed](./INSTRUCTION_images/LoadingScreen/speed.PNG)
+
+## Adding Background Music
+
+1. In the Project window, open the `Assets` folder if it is not already opended.
+2. Within the `Assets` folder, open the `Prefabs` folder.
+3. Within the `Prefabs` folder, open the `Music` folder.
+4. Within the `Music` folder, locate the prefab named `BackgroundMusic` and drag it into the Scene Hierarchy (any Scene you want). This game object makes it so you have background music in your game. It is used by `Settings` where its volume is adjusted.
+
+![finding music](./INSTRUCTION_images/AddingBackgroundMusic/find.PNG)
+
+5. You can change the song by adding your own, or one that you have rights to use by changing the value in the `Audio Source` component.
+
+![change music](./INSTRUCTION_images/AddingBackgroundMusic/change.PNG)
+
 ## Door Ways (Difficult)
 
 Door Ways in the context of this project allow you to enter and exit buildings and go to different Scenes in a level. In the titles of the instructions, the place a `Player` is coming from is referred to as an `Entry Way` while the place a `Player` is entering is referred to as a `Destination`.

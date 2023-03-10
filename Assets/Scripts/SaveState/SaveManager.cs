@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
-    //public Armour armour = null;
     public PlayerData playerData = null;
     public SceneData sceneData = null;
     public BossDefeatsData bossDefeatsData = null;
+    public SettingsData settingsData = null;
     public Player player = null;
     private string savePath;
 
@@ -23,11 +22,12 @@ public class SaveManager : MonoBehaviour
 
         savePath = Application.persistentDataPath + "/saveData/";
         Debug.Log("Saving to path: " + savePath);
-        //this.armour = new Armour();
         this.playerData = new PlayerData();
         this.sceneData = new SceneData();
         this.bossDefeatsData = new BossDefeatsData();
+        this.settingsData = new SettingsData();
 
+        // if coming from load game button or entering a door way
         if (!CreateNewGame.pressedCreateGame && !MenuControls.pressedRestartLevel)
         {
             LoadGame();
@@ -39,25 +39,22 @@ public class SaveManager : MonoBehaviour
             }
             if (DoorWay.enteredDoorWay)
             {
+                player.transform.position = player.startingPosition.initialValue;
                 DoorWay.enteredDoorWay = false;
             }
         }
+
         if(CreateNewGame.pressedCreateGame || MenuControls.pressedRestartLevel)
         {
-            if (MenuControls.pressedRestartLevel)
-            {
-                this.player.Awake();
 
-                MenuControls.pressedRestartLevel = false;
-            }
-
-            // create new game save
+            // create new game save files
             SaveGame();
 
             LoadGame();
 
             // reset Menu Controls variables
             CreateNewGame.pressedCreateGame = false;
+            MenuControls.pressedRestartLevel = false;
             CreateNewGame.newUserName = string.Empty;
         }
     }
@@ -70,10 +67,6 @@ public class SaveManager : MonoBehaviour
         SavePlayer();
         SaveBossDefeats();
         SaveScene();
-        //SaveLoot();
-        //SaveTreasureChests();
-
-        // save current scene
     }
 
     /*
@@ -83,8 +76,6 @@ public class SaveManager : MonoBehaviour
     {
         LoadPlayer();
         LoadBossDefeats();
-        //LoadLoot();
-        //LoadTreasureChests();
     }
 
     [ContextMenu("Save Player")]
@@ -124,7 +115,7 @@ public class SaveManager : MonoBehaviour
             this.player.playerScore = playerData.playerScore;
             this.player.isDead = playerData.isDead;
 
-            if (!DoorWay.enteredDoorWay)
+            if (!DoorWay.enteredDoorWay && !MenuControls.pressedRestartLevel)
             {
                 this.player.transform.position = playerData.playerPosition;
             }
@@ -203,5 +194,13 @@ public class SaveManager : MonoBehaviour
                 bossDefeated.SetActive(false);
             }
         }
+    }
+
+    /*
+     * Returns true if all existing settings are not null
+     */
+    private static bool AllSettingsExist()
+    {
+        return SettingsControls.backgroundMusic != null;
     }
 }

@@ -10,17 +10,19 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 50;
     public int health;
     public bool isDead = false;
-    public int numberOfLives;
     public float reviveTime;
+    public int numberOfLives;
     public int value;
 
-
-    public void Awake()
+    private void Awake()
     {
-        health = maxHealth;
+        Revive();
     }
-
-    // https://www.youtube.com/watch?v=sPiVz1k-fEs
+    
+    /*
+     * Function takes away health of enemy based on its
+     * defense and the given player's attack
+     */
     public void TakeHit(Player player)
     {
         if (!isDead)
@@ -28,11 +30,11 @@ public class Enemy : MonoBehaviour
             int damage = (player.GetAttackPower() - this.defense);
             if (damage > 0)
             {
-                health -= damage;
+                this.health -= damage;
                 Debug.Log(player.userName + " has dealt " + damage + " damage to " + enemyName);
 
-                // show message in console
-                HUDConsole._instance.Log(player.userName + " has dealt " + damage + " damage to " + enemyName);
+                // show message in console for 3 seconds
+                HUDConsole._instance.Log(player.userName + " has dealt " + damage + " damage to " + enemyName, 3f);
 
                 // take damage animation
                 this.GetComponent<Animator>().SetTrigger("tookDamage");
@@ -42,8 +44,8 @@ public class Enemy : MonoBehaviour
             if (health <= 0)
             {
                 Die();
-                isDead = true;
-                numberOfLives -= 1;
+
+                numberOfLives--;
 
                 if (RanOutOfLives())
                 {
@@ -58,6 +60,11 @@ public class Enemy : MonoBehaviour
         }  
     }
 
+    /*
+     * Function disables the game object of an enemy is it
+     * ran out of lives. It also returns whether or not the
+     * enemy has ran out of lives
+     */
     private bool RanOutOfLives()
     {
         if(numberOfLives == 0)
@@ -70,12 +77,18 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
+    /*
+     * Function does death animation disables colliders
+     * and disables this component when the enemy is dead
+     */
     private void Die()
     {
+        isDead = true;
+
         Debug.Log(enemyName + " has been defeated!");
 
-        // show message in console
-        HUDConsole._instance.Log(enemyName + " has been defeated!");
+        // show message in console for 3 seconds
+        HUDConsole._instance.Log(enemyName + " has been defeated!", 3f);
 
         // do death animation
         this.GetComponent<Animator>().SetTrigger("isDead");
@@ -104,10 +117,12 @@ public class Enemy : MonoBehaviour
         this.GetComponent<Animator>().SetTrigger("attacked");
     }
 
+    /*
+     * Function re enables colliders and component of enemy
+     * and resets health and brings enemy back to life
+     */
     public void Revive()
     {
-        // now damage can be dealt again
-        isDead = false;
 
         // make enemy alive
         this.GetComponent<Animator>().ResetTrigger("isDead");
@@ -119,7 +134,10 @@ public class Enemy : MonoBehaviour
         this.enabled = true;
 
         // reset health
-        Awake();
+        health = maxHealth;
+
+        // now damage can be dealt again
+        isDead = false;
     }
 
     private void Update()

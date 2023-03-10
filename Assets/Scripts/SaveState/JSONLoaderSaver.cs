@@ -2,32 +2,6 @@ using UnityEngine;
 using System.IO;
 public class JSONLoaderSaver : MonoBehaviour
 {
-    //public static void SaveArmourAsJSON(string savePath, string fname, Armour
-    //armour)
-    //{
-    //    Debug.Log("savePath: " + savePath);
-    //    if (!Directory.Exists(savePath))
-    //    {
-    //        Directory.CreateDirectory(savePath);
-    //        Debug.Log("Creating save data directory: " + savePath);
-    //    }
-    //    string json = JsonUtility.ToJson(armour);
-    //    File.WriteAllText(savePath + fname, json);
-    //}
-    //public static Armour LoadArmourFromJSON(string savePath, string fname)
-    //{
-    //    if (File.Exists(savePath + fname))
-    //    {
-    //        string json = File.ReadAllText(savePath + fname);
-    //        Armour armour = JsonUtility.FromJson<Armour>(json);
-    //        return armour;
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("Cannot find file: " + savePath);
-    //    }
-    //    return null;
-    //}
     public static void SaveBossDefeatsDataAsJSON(string savePath, string fname,
     BossDefeatsData bossDefeatsData)
     {
@@ -118,7 +92,6 @@ public class JSONLoaderSaver : MonoBehaviour
     public static void SaveSettingsDataAsJSON(string savePath, string fname,
     SettingsData settingsData)
     {
-        Debug.Log("savePath: " + savePath);
         if (!Directory.Exists(savePath))
         {
             Directory.CreateDirectory(savePath);

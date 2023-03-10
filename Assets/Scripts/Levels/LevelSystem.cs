@@ -4,7 +4,7 @@ using TMPro;
 
 public class LevelSystem : MonoBehaviour
 {
-    Level[] levels = new Level[] { 
+    private Level[] levels = new Level[] { 
         new Level("LVL 1",0,0,0),
         new Level("LVL 2",1000,2,2),
         new Level("LVL 3",5000,4,2),
@@ -17,7 +17,8 @@ public class LevelSystem : MonoBehaviour
         new Level("LVL 10",50000,20,10),
     };
 
-    public Player player = null;
+    [SerializeField] private Player player = null;
+    private string previousLvl = string.Empty;
 
     private void Update()
     {
@@ -35,7 +36,7 @@ public class LevelSystem : MonoBehaviour
 
         if (player != null)
         {
-            int nextLevelIndex = getNextLevelIndex(player.playerScore);
+            int nextLevelIndex = GetNextLevelIndex(player.playerScore);
 
             Level currentLvl = levels[nextLevelIndex - 1];
             Level nextLvl = levels[nextLevelIndex];
@@ -47,31 +48,44 @@ public class LevelSystem : MonoBehaviour
                 levelSlider.GetComponent<Slider>().value = player.playerScore - currentLvl.scoreRequired;
             }
 
-            // Updating Text in HUD
+            
             if(currentLvlInHUD != null && nextLvlInHUD != null)
             {
+                // if new level acquired
+                if(previousLvl != string.Empty && previousLvl != currentLvl.levelName)
+                {
+                    // Updating Player Attack
+                    player.SetAttackPower(currentLvl.attackBoost + player.defaultAttack);
+
+                    // Updating Player Defense
+                    player.SetDefense(currentLvl.defenseBoost + player.defaultDefense);
+
+                    // Heal player as a reward for upgrading levels
+                    player.Heal(player.maxHealth);
+
+                    // show message in console for 10 seconds
+                    HUDConsole._instance.Log(player.userName + " has reached " +currentLvl.levelName+"!\n"+
+                    "Enjoy full health, +" + currentLvl.attackBoost + " Attack and "+
+                    "+" + currentLvl.defenseBoost + " Defense!" , 10f);
+                }
+
+                // Updating Text in HUD
                 currentLvlInHUD.GetComponent<TMP_Text>().text = currentLvl.levelName;
                 nextLvlInHUD.GetComponent<TMP_Text>().text = nextLvl.levelName;
+
+                previousLvl = currentLvl.levelName;
             }
 
-            //Debug.Log("---NEW LEVEL ACQUIRED---");
-            //Debug.Log(player.userName + " has reached " +currentLvl+"!");
-            //Debug.Log("\n"+ player.userName + " now has:");
-
-            // Updating Player Attack
-            player.SetAttackPower(currentLvl.attackBoost + player.defaultAttack);
-
-            //Debug.Log("+" + currentLvl.attackBoost + " Attack ["+"Current Attack = "+player.GetAttackPower()+"]");
-
-            // Updating Player Defense
-            player.SetDefense(currentLvl.defenseBoost + player.defaultDefense);
-
-            //Debug.Log("+" + currentLvl.defenseBoost + " Defense [" + "Current Defense = " + player.GetDefense() + "]");
+            
         }
 
     }
 
-    private int getNextLevelIndex(int playerScore)
+    /*
+     * Gets the index of the next level in the array of Levels
+     * based on the current playerScore
+     */
+    private int GetNextLevelIndex(int playerScore)
     {
         int result = 0;
         for(int i = 0; i < levels.Length; i++)

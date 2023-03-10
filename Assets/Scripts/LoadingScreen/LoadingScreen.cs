@@ -4,28 +4,36 @@ using TMPro;
 
 public class LoadingScreen : MonoBehaviour
 {
+    private TMP_Text loadingText;
+
+    private void Awake()
+    {
+        loadingText = this.GetComponentInChildren<TMP_Text>();
+    }
+
+    /*
+     * Show Text Animation for Loading Screen
+     */
     IEnumerator TextAnimation()
     {
-        TMP_Text loadingText = this.GetComponentInChildren<TMP_Text>();
+        
+        if(loadingText != null)
+        {
+            loadingText.text = "LOADING";
+            yield return new WaitForSeconds(0.4f);
+            loadingText.text = "LOADING.";
+            yield return new WaitForSeconds(0.4f);
+            loadingText.text = "LOADING..";
+            yield return new WaitForSeconds(0.4f);
+            loadingText.text = "LOADING...";
+            yield return new WaitForSeconds(0.4f);
 
-        loadingText.text = "LOADING";
-        yield return new WaitForSeconds(0.4f);
-        loadingText.text = "LOADING.";
-        yield return new WaitForSeconds(0.4f);
-        loadingText.text = "LOADING..";
-        yield return new WaitForSeconds(0.4f);
-        loadingText.text = "LOADING...";
-        yield return new WaitForSeconds(0.4f);
-
-        Start();
+            Start();
+        }
     }
 
     private void Start()
     {
         StartCoroutine(TextAnimation());
-    }
-    private void Update()
-    {
-        
     }
 }

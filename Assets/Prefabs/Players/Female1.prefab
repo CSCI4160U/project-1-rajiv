@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6551572282522626706}
-  attackRange: 1
+  attackRange: 0.8
   upAttackPoint: {fileID: 8574525273870810587}
   downAttackPoint: {fileID: 4786095826775751884}
   leftAttackPoint: {fileID: 2166765811424998875}
@@ -445,6 +445,8 @@ MonoBehaviour:
   bossDefeatsData:
     bossesDefeatedNames: []
     bossesDefeatedScenes: []
+  settingsData:
+    musicVolume: 0
   player: {fileID: 6551572282522626706}
 --- !u!114 &2077685240838580455
 MonoBehaviour:
