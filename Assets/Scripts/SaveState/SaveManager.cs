@@ -30,6 +30,7 @@ public class SaveManager : MonoBehaviour
         // if coming from load game button or entering a door way
         if (!CreateNewGame.pressedCreateGame && !MenuControls.pressedRestartLevel)
         {
+            // load game save files overwriting default player
             LoadGame();
 
             if (MenuControls.pressedLoadGame)
@@ -39,15 +40,17 @@ public class SaveManager : MonoBehaviour
             }
             if (DoorWay.enteredDoorWay)
             {
+                // put player in starting position for the active Scene
                 player.transform.position = player.startingPosition.initialValue;
                 DoorWay.enteredDoorWay = false;
             }
         }
 
+        // if creating a new game or restarting level
         if(CreateNewGame.pressedCreateGame || MenuControls.pressedRestartLevel)
         {
 
-            // create new game save files
+            // create new game save files with default player
             SaveGame();
 
             LoadGame();
@@ -115,7 +118,7 @@ public class SaveManager : MonoBehaviour
             this.player.playerScore = playerData.playerScore;
             this.player.isDead = playerData.isDead;
 
-            if (!DoorWay.enteredDoorWay && !MenuControls.pressedRestartLevel)
+            if (!DoorWay.enteredDoorWay)
             {
                 this.player.transform.position = playerData.playerPosition;
             }
@@ -131,7 +134,6 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Saved Scene named: " + sceneData.sceneFullName);
 
         JSONLoaderSaver.SaveSceneDataAsJSON(savePath, "sceneData.json", this.sceneData);
-        //BinaryLoaderSaver.SavePlayerAsBinary(savePath, "player.bin",this.playerData);
     }
     [ContextMenu("Load Scene")]
     IEnumerator LoadScene()
@@ -167,14 +169,11 @@ public class SaveManager : MonoBehaviour
         this.bossDefeatsData.bossesDefeatedScenes = player.bossesDefeatedScenes;
 
         JSONLoaderSaver.SaveBossDefeatsDataAsJSON(savePath, "bossDefeatsData.json", this.bossDefeatsData);
-        //BinaryLoaderSaver.SavePlayerAsBinary(savePath, "player.bin",this.playerData);
     }
     [ContextMenu("Load BossDefeats")]
     void LoadBossDefeats()
     {
         this.bossDefeatsData = JSONLoaderSaver.LoadBossDefeatsDataFromJSON(savePath, "bossDefeatsData.json");
-
-        //this.playerData = BinaryLoaderSaver.LoadPlayerFromBinary(savePath,"player.bin");
 
         if (bossDefeatsData != null)
         {
@@ -194,13 +193,5 @@ public class SaveManager : MonoBehaviour
                 bossDefeated.SetActive(false);
             }
         }
-    }
-
-    /*
-     * Returns true if all existing settings are not null
-     */
-    private static bool AllSettingsExist()
-    {
-        return SettingsControls.backgroundMusic != null;
     }
 }

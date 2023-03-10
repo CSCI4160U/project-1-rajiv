@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
 
     public void Awake()
     {
+        // initialize player variables
         currentAttack = defaultAttack;
         currentDefense = defaultDefense;
         health = maxHealth;
