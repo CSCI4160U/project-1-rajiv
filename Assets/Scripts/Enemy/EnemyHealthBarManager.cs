@@ -39,22 +39,19 @@ public class EnemyHealthBarManager : MonoBehaviour
      */
     public void SetAndShowEnemyHealthBar(Enemy enemy)
     {
-        if (enemy.gameObject.activeInHierarchy)
+        gameObject.SetActive(true);
+
+        if (textComponent != null)
         {
-            gameObject.SetActive(true);
+            // set health bar name to enemy name
+            textComponent.text = enemy.enemyName;
+        }
 
-            if (textComponent != null)
-            {
-                // set health bar name to enemy name
-                textComponent.text = enemy.enemyName;
-            }
-
-            if (healthSlider != null)
-            {
-                // set health slider values
-                healthSlider.maxValue = enemy.maxHealth;
-                healthSlider.value = enemy.health;
-            }
+        if (healthSlider != null)
+        {
+            // set health slider values
+            healthSlider.maxValue = enemy.maxHealth;
+            healthSlider.value = enemy.health;
         }
     }
 

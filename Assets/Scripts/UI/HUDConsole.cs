@@ -12,7 +12,7 @@ public class HUDConsole : MonoBehaviour
     {
         _instance = this;
 
-        console = this.gameObject;
+        console = _instance.gameObject;
     }
     private void Start()
     {

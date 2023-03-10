@@ -988,14 +988,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 5
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 5
+  m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 32
   m_CharacterLimit: 0
@@ -1735,7 +1735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8302569704828570146
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4807,7 +4807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5638308936357245561, guid: 41c1c0cc96dedc34caa856e0d73ac02a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8841421607255937507, guid: 41c1c0cc96dedc34caa856e0d73ac02a, type: 3}
@@ -4960,6 +4960,10 @@ PrefabInstance:
     - target: {fileID: 3436744461388037467, guid: 41c1c0cc96dedc34caa856e0d73ac02a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474806696277850627, guid: 41c1c0cc96dedc34caa856e0d73ac02a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5638308936357245561, guid: 41c1c0cc96dedc34caa856e0d73ac02a, type: 3}
       propertyPath: m_Name

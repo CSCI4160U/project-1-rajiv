@@ -10,6 +10,14 @@ public class EnemyHealthBar : MonoBehaviour
         enemy = this.GetComponent<Enemy>();
     }
 
+    private void Update()
+    {
+        if (!enemy.gameObject.activeInHierarchy)
+        {
+            EnemyHealthBarManager._instance.HideEnemyHeathBar();
+        }
+    }
+
     private void OnMouseEnter()
     {
         EnemyHealthBarManager._instance.SetAndShowEnemyHealthBar(enemy);

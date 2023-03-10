@@ -17,11 +17,6 @@ public class DoorWay : MonoBehaviour
 
     public static bool enteredDoorWay = false;
 
-    private void Start()
-    {
-        Debug.Log(this.gameObject.name);
-    }
-
     private void Update()
     {
         CheckIfPlayerHasReachedGoal();
